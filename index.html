@@ -45,8 +45,32 @@
     <div class="absolute inset-x-0 -bottom-24 h-48 bg-gradient-to-b from-indigo-50/60 to-transparent pointer-events-none"></div>
   </section>
 
+  <!-- Module Shortcuts -->
+  <section class="py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="#signalboard" class="rounded-2xl border border-slate-200 p-4 bg-white hover:shadow transition">
+          <div class="text-sm font-semibold">Signal‑Board</div>
+          <div class="text-xs text-slate-500">Aktuelle Chancen</div>
+        </a>
+        <a href="#risiko" class="rounded-2xl border border-slate-200 p-4 bg-white hover:shadow transition">
+          <div class="text-sm font-semibold"><span id="risiko"></span>Risikoleitplanken</div>
+          <div class="text-xs text-slate-500">Positionsgröße · SL/TP</div>
+        </a>
+        <a href="#backtests" class="rounded-2xl border border-slate-200 p-4 bg-white hover:shadow transition">
+          <div class="text-sm font-semibold">Backtests</div>
+          <div class="text-xs text-slate-500">Historische Robustheit</div>
+        </a>
+        <a href="#erklaerbar" class="rounded-2xl border border-slate-200 p-4 bg-white hover:shadow transition">
+          <div class="text-sm font-semibold">Erklärbarkeit</div>
+          <div class="text-xs text-slate-500">Warum ein Signal?</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Problem / Lösung (Vorteile) -->
-  <section id="vorteile" class="py-20 bg-indigo-50/30">
+  <section id="produkt" class="py-20 bg-indigo-50/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto">
         <h2 class="text-3xl font-bold tracking-tight">Warum Trader MVP mögen</h2>
@@ -70,7 +94,7 @@
   </section>
 
   <!-- Features -->
-  <section id="funktionen" class="py-20">
+  <section id="loesungen" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-12 items-start">
         <div>
@@ -82,7 +106,7 @@
             <li class="flex gap-3"><span class="mt-1">✔</span><span>Leicht anpassbar mit Tailwind Utility‑Klassen.</span></li>
           </ul>
         </div>
-        <div class="grid sm:grid-cols-2 gap-6"><div class="rounded-2xl border border-slate-200 p-6 bg-white"><div class="text-slate-400 mb-2">📊</div><h3 class="font-semibold">Signal-Board</h3><p class="mt-1 text-slate-600">Übersichtliche Liste aktueller Chancen, inklusive Zeitrahmen & Stärke.</p></div><div class="rounded-2xl border border-slate-200 p-6 bg-white"><div class="text-slate-400 mb-2">🛡️</div><h3 class="font-semibold">Risikoleitplanken</h3><p class="mt-1 text-slate-600">Positionsgröße, SL/TP-Ideen & Max-Drawdown im Blick.</p></div><div class="rounded-2xl border border-slate-200 p-6 bg-white col-span-2"><img src="/assets/dashboard.svg" alt="MVP Dashboard – einfache Übersicht" class="rounded-xl w-full h-auto"/></div></div></div></div>
+        <div class="grid sm:grid-cols-2 gap-6"><div class="rounded-2xl border border-slate-200 p-6 bg-white"><div class="text-slate-400 mb-2">📊</div><h3 class="font-semibold"><span id="signalboard"></span>Signal-Board</h3><p class="mt-1 text-slate-600">Übersichtliche Liste aktueller Chancen, inklusive Zeitrahmen & Stärke.</p></div><div class="rounded-2xl border border-slate-200 p-6 bg-white"><div class="text-slate-400 mb-2">🛡️</div><h3 class="font-semibold"><span id="risiko"></span>Risikoleitplanken</h3><p class="mt-1 text-slate-600">Positionsgröße, SL/TP-Ideen & Max-Drawdown im Blick.</p></div><div class="rounded-2xl border border-slate-200 p-6 bg-white col-span-2"><img src="/assets/dashboard.svg" alt="MVP Dashboard – einfache Übersicht" class="rounded-xl w-full h-auto"/></div></div></div></div>
     </div>
   </section>
 
@@ -152,6 +176,34 @@
     </div>
   </section>
 
+
+  <section id="innovation" class="py-20 bg-indigo-50/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold tracking-tight">Was an MVP wirklich neu ist</h2>
+        <p class="mt-3 text-slate-600">Nicht nur „noch ein Indikator“, sondern ein klarer Prozess von Idee → Signal → Risiko → Review.</p>
+      </div>
+      <div class="mt-12 grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+          <h3 class="font-semibold">Eigene Indikator‑Pipelines</h3>
+          <p class="mt-2 text-slate-600">Kombination aus Trend, Momentum und Volatilität – abgestimmt statt zufällig gestapelt.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+          <h3 class="font-semibold"><span id="erklaerbar"></span>Erklärbare Signale</h3>
+          <p class="mt-2 text-slate-600">Jedes Signal kommt mit kurzer Begründung (z. B. „%K kreuzt ↑, RSI dreht V‑förmig, MACD steigt“).</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+          <h3 class="font-semibold"><span id="backtests"></span>Realistische Backtests</h3>
+          <p class="mt-2 text-slate-600">Einbezug von Slippage, Gebühren und Liquidität – Ergebnisse näher an der Praxis.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+          <h3 class="font-semibold">Risikoregeln als Playbooks</h3>
+          <p class="mt-2 text-slate-600">Konkrete Handlungsanweisungen für Entry, Positionsgröße und Ausstiegsszenarien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section id="faq" class="py-20 bg-indigo-50/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -184,6 +236,26 @@
     </div>
   </section>
 
+  <section id="about" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight">Wer wir sind</h2>
+          <p class="mt-4 text-slate-700">MVP ist ein unabhängiges Projekt aus Deutschland. Wir verbinden Wirtschafts‑Know-how mit Data‑Science und Trading‑Praxis. Unser Ziel: Klarheit statt Overload.</p>
+          <p class="mt-3 text-slate-700">Wir entwickeln Indikatoren und Playbooks selbst, testen sie gründlich und erklären sie verständlich. So bleibt Trading fokussiert und nachvollziehbar.</p>
+        </div>
+        <div>
+          <img src="/assets/feature-cards.svg" alt="MVP Werte & Prinzipien" class="rounded-2xl border border-slate-200 shadow w-full h-auto"/>
+          <ul class="mt-6 space-y-2 text-slate-700">
+            <li>• Unabhängig, transparent, lernend</li>
+            <li>• Kein Hype – nur reproduzierbare Prozesse</li>
+            <li>• Nutzerfeedback fließt in jede Version ein</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section id="cta" class="py-20">
     <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -191,6 +263,18 @@
       <p class="mt-3 text-slate-600">Passe Texte, Farben und Bilder an – deploye in Minuten.</p>
       <a href="mailto:you@example.com" class="mt-6 inline-flex px-6 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700">Kontakt aufnehmen</a>
       <p class="mt-4 text-xs text-slate-500">Hinweis: Keine Anlageberatung. Inhalte dienen Informations- & Ausbildungszwecken. Trading birgt Risiken; eigene Recherche erforderlich.</p>
+    </div>
+  </section>
+
+  <section id="kontakt" class="py-20 bg-indigo-50/30">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold tracking-tight">Kontakt & Demo</h2>
+      <p class="mt-3 text-slate-600">Fragen? Eine kurze Demo? Schreib uns – wir melden uns zeitnah.</p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="mailto:kurzendoerfer.j@gmail.com" class="inline-flex px-6 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700">E‑Mail schreiben</a>
+        <a href="#cta" class="inline-flex px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50">Kostenlos testen</a>
+      </div>
+      <p class="mt-4 text-xs text-slate-500">Hinweis: Keine Anlageberatung. Inhalte dienen Informations‑ & Ausbildungszwecken.</p>
     </div>
   </section>
 
