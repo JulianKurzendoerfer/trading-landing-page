@@ -1,0 +1,8 @@
+# Optional: Render configuration for static site
+# Save as render.yaml at repo root and choose "Blueprint" on Render if desired.
+services:
+  - type: web
+    name: clean-landing-starter
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .

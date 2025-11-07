@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deine App – Klar. Modern. Professionell.</title>
+  <meta name="description" content="Eine klare Landingpage für deine App – schnell, modern, professionell." />
+  <!-- Tailwind via CDN for ultra-fast start; you can switch to a build pipeline later -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Optional: smooth scrolling for anchor links */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+
+  <!-- Risk Banner -->
+  <div class="w-full bg-amber-50 border-b border-amber-200 text-amber-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <p><strong>Risikohinweis:</strong> Kapitalanlagen sind mit erheblichen Risiken verbunden. Wertverluste bis hin zum Totalverlust sind möglich. 
+      Vergangene Performance ist kein verlässlicher Indikator für zukünftige Ergebnisse. Keine Anlageberatung.</p>
+    </div>
+  </div>
+
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#" class="font-semibold tracking-tight text-xl">Deine<span class="text-sky-600">App</span></a>
+        <nav class="hidden md:flex gap-6 text-sm">
+          <a href="#vorteile" class="hover:text-sky-700">Vorteile</a>
+          <a href="#funktionen" class="hover:text-sky-700">Funktionen</a>
+          <a href="#preise" class="hover:text-sky-700">Preise</a>
+          <a href="#faq" class="hover:text-sky-700">FAQ</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#demo" class="hidden sm:inline-flex px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50">Live‑Demo</a>
+          <a href="#cta" class="inline-flex px-4 py-2 rounded-xl bg-sky-600 text-white hover:bg-sky-700">Kostenlos starten</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            Baue Vertrauen mit einer <span class="text-sky-600">klaren</span>, <span class="text-sky-600">modernen</span> Landingpage
+          </h1>
+          <p class="mt-5 text-lg text-slate-600">
+            Erkläre in wenigen Sekunden, was deine Website/App kann. Sauberes Design, starke Struktur, perfekte Performance.
+          </p>
+          <div class="mt-8 flex gap-3">
+            <a href="#cta" class="inline-flex px-6 py-3 rounded-xl bg-sky-600 text-white hover:bg-sky-700">Jetzt kostenlos testen</a>
+            <a href="#funktionen" class="inline-flex px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50">Mehr erfahren</a>
+          </div>
+          <!-- Trust badges -->
+          <div class="mt-8 flex items-center gap-6 text-slate-500 text-sm">
+            <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span><span>DSGVO‑ready</span></div>
+            <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span><span>Schnell & responsiv</span></div>
+            <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span><span>Render‑bereit</span></div>
+          </div>
+        </div>
+        <div class="relative rounded-2xl border border-slate-200 shadow-sm p-4">
+          <div class="aspect-video rounded-xl bg-slate-50 grid place-content-center text-slate-400 text-sm">
+            <div class="text-center">
+              <div class="text-6xl mb-2">📈</div>
+              <div>Platzhalter für App‑Screenshot / Hero‑Bild</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute inset-x-0 -bottom-24 h-48 bg-gradient-to-b from-sky-50/60 to-transparent pointer-events-none"></div>
+  </section>
+
+  <!-- Problem / Lösung (Vorteile) -->
+  <section id="vorteile" class="py-20 bg-sky-50/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl font-bold tracking-tight">Warum deine Landingpage zählt</h2>
+        <p class="mt-3 text-slate-600">Klare Inhalte + sauberes UI = mehr Vertrauen, mehr Conversions.</p>
+      </div>
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+          <h3 class="font-semibold">Klarer Fokus</h3>
+          <p class="mt-2 text-slate-600">Eine Kernaussage, ein Call‑to‑Action, null Ablenkung.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+          <h3 class="font-semibold">Schnell & leicht</h3>
+          <p class="mt-2 text-slate-600">Keine Framework‑Last nötig – trotzdem jederzeit erweiterbar.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+          <h3 class="font-semibold">Rechtssicher gedacht</h3>
+          <p class="mt-2 text-slate-600">Links zu Impressum & Datenschutz inklusive. Kein Beratungsangebot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="funktionen" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight">Funktionen, die überzeugen</h2>
+          <ul class="mt-6 space-y-4 text-slate-700">
+            <li class="flex gap-3"><span class="mt-1">✔</span><span>Hero‑Bereich mit starkem Nutzenversprechen.</span></li>
+            <li class="flex gap-3"><span class="mt-1">✔</span><span>Feature‑Grid, Testimonial‑Boxen, FAQ.</span></li>
+            <li class="flex gap-3"><span class="mt-1">✔</span><span>Saubere Typographie, konsistente Abstände, klare Hierarchie.</span></li>
+            <li class="flex gap-3"><span class="mt-1">✔</span><span>Leicht anpassbar mit Tailwind Utility‑Klassen.</span></li>
+          </ul>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+            <div class="text-slate-400 mb-2">🔐</div>
+            <h3 class="font-semibold">DSGVO Basics</h3>
+            <p class="mt-1 text-slate-600">Cookie‑freies Grundgerüst, eigene Analytics später möglich.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+            <div class="text-slate-400 mb-2">⚡</div>
+            <h3 class="font-semibold">Sofort deploybar</h3>
+            <p class="mt-1 text-slate-600">Als statische Seite auf Render – kein Build nötig.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+            <div class="text-slate-400 mb-2">🧱</div>
+            <h3 class="font-semibold">Modular</h3>
+            <p class="mt-1 text-slate-600">Abschnitte schnell duplizieren, um neue Sektionen zu ergänzen.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+            <div class="text-slate-400 mb-2">🎯</div>
+            <h3 class="font-semibold">Conversion‑Ready</h3>
+            <p class="mt-1 text-slate-600">Klare CTAs, Social Proof und FAQ für weniger Reibung.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-sky-50/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight text-center">Was Nutzer sagen</h2>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <figure class="rounded-2xl border border-slate-200 bg-white p-6">
+          <blockquote class="text-slate-700">„Super schnell aufgesetzt und sehr klar im Nutzen. Genau das, was wir brauchten.“</blockquote>
+          <figcaption class="mt-4 text-sm text-slate-500">— Alex M.</figcaption>
+        </figure>
+        <figure class="rounded-2xl border border-slate-200 bg-white p-6">
+          <blockquote class="text-slate-700">„Sieht professionell aus, lädt fix und ist mobil top.“</blockquote>
+          <figcaption class="mt-4 text-sm text-slate-500">— Samira M.</figcaption>
+        </figure>
+        <figure class="rounded-2xl border border-slate-200 bg-white p-6">
+          <blockquote class="text-slate-700">„Perfekte Basis – ich konnte die Inhalte in 30 Minuten austauschen.“</blockquote>
+          <figcaption class="mt-4 text-sm text-slate-500">— Jonas R.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preise -->
+  <section id="preise" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl font-bold tracking-tight">Einfache Preisstruktur</h2>
+        <p class="mt-3 text-slate-600">Starte kostenlos, wachse bei Bedarf.</p>
+      </div>
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+          <h3 class="font-semibold">Free</h3>
+          <p class="text-sm text-slate-500 mt-1">Für Ideen & Tests</p>
+          <p class="text-3xl font-bold mt-4">0 €</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-700">
+            <li>Statische Seite</li>
+            <li>Basis‑Sektionen</li>
+            <li>DSGVO‑Links</li>
+          </ul>
+          <a href="#cta" class="mt-6 inline-flex w-full justify-center px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50">Loslegen</a>
+        </div>
+        <div class="rounded-2xl border-2 border-sky-600 p-6 bg-white shadow-sm">
+          <h3 class="font-semibold">Pro</h3>
+          <p class="text-sm text-slate-500 mt-1">Für Projekte mit Ambition</p>
+          <p class="text-3xl font-bold mt-4">9 €<span class="text-base font-normal text-slate-500">/Monat</span></p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-700">
+            <li>Kontaktformular</li>
+            <li>Blog/News‑Sektion</li>
+            <li>Einfache Analytics</li>
+          </ul>
+          <a href="#cta" class="mt-6 inline-flex w-full justify-center px-4 py-2 rounded-xl bg-sky-600 text-white hover:bg-sky-700">Kostenlos testen</a>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
+          <h3 class="font-semibold">Business</h3>
+          <p class="text-sm text-slate-500 mt-1">Für Teams & Marken</p>
+          <p class="text-3xl font-bold mt-4">Individuell</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-700">
+            <li>Custom Komponenten</li>
+            <li>Mehrsprachigkeit</li>
+            <li>Support & SLA</li>
+          </ul>
+          <a href="#cta" class="mt-6 inline-flex w-full justify-center px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50">Anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 bg-sky-50/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold tracking-tight text-center">Häufige Fragen</h2>
+        <div class="mt-10 divide-y divide-slate-200 border border-slate-200 rounded-2xl bg-white">
+          <details class="group p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between">
+              <span class="font-medium">Kann ich später auf React/Next.js umsteigen?</span>
+              <span class="transition group-open:rotate-180">⌄</span>
+            </summary>
+            <p class="mt-3 text-slate-600">Ja. Starte statisch, migriere später zu einem Framework. Das HTML bleibt deine Basis.</p>
+          </details>
+          <details class="group p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between">
+              <span class="font-medium">Wie deploye ich das auf Render?</span>
+              <span class="transition group-open:rotate-180">⌄</span>
+            </summary>
+            <p class="mt-3 text-slate-600">Lege ein Git‑Repo an, verbinde es als <em>Static Site</em> bei Render, ohne Build‑Schritt. Publish Directory: <code>.</code></p>
+          </details>
+          <details class="group p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between">
+              <span class="font-medium">Ist das rechtssicher in Deutschland?</span>
+              <span class="transition group-open:rotate-180">⌄</span>
+            </summary>
+            <p class="mt-3 text-slate-600">Grundstruktur mit Impressum & Datenschutzerklärung ist enthalten. Inhalte sind Platzhalter und müssen von dir korrekt ausgefüllt/geprüft werden.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="py-20">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold tracking-tight">Bereit für den ersten Eindruck?</h2>
+      <p class="mt-3 text-slate-600">Passe Texte, Farben und Bilder an – deploye in Minuten.</p>
+      <a href="mailto:you@example.com" class="mt-6 inline-flex px-6 py-3 rounded-xl bg-sky-600 text-white hover:bg-sky-700">Kontakt aufnehmen</a>
+      <p class="mt-4 text-xs text-slate-500">Hinweis: Keine Anlageberatung. Alle Inhalte dienen ausschließlich Informations- und Ausbildungszwecken. Handel mit Wertpapieren/Derivaten ist risikoreich; eigene Recherche erforderlich.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+        <p>© <span id="year"></span> DeineApp. Alle Rechte vorbehalten.</p>
+        <div class="flex gap-6">
+          <a href="/legal/impressum.html" class="hover:text-slate-700">Impressum</a>
+          <a href="/legal/datenschutz.html" class="hover:text-slate-700">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 text-xs text-slate-500">
+      <a href="/legal/risikohinweis.html" class="hover:text-slate-700">Risikohinweis</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
