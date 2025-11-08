@@ -1,301 +1,232 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Market Vision Pro – Seriöse Trading‑Analysen, klar & modern</title>
-  <meta name="description" content="Landingpage für MVP – seriöse Trading-Analysen mit eigenen Indikatoren & klaren Handlungsanweisungen." />
-  <!-- Tailwind via CDN for ultra-fast start; you can switch to a build pipeline later -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Market Vision Pro (MVP) – Seriöses Trading mit klaren Signalen</title>
+  <meta name="description" content="Market Vision Pro (MVP): maßgeschneiderte Indikatoren, Backtests und klare Handelsanweisungen für fokussierte, nachvollziehbare Entscheidungen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Optional: smooth scrolling for anchor links */
-    html { scroll-behavior: smooth; }
-  </style>
+  <style>html{scroll-behavior:smooth} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}</style>
 </head>
 <body class="bg-white text-slate-900">
-
+  <!-- Navbar -->
+  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="h-16 flex items-center justify-between">
+        <a href="#top" class="flex items-center gap-2">
+          <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-indigo-600 text-white font-bold">M</span>
+          <span class="font-semibold">Market&nbsp;Vision&nbsp;Pro</span>
+          <span class="ml-2 text-xs text-slate-500">MVP</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" class="hover:text-indigo-600">Vorteile</a>
+          <a href="#why" class="hover:text-indigo-600">Warum MVP?</a>
+          <a href="#how" class="hover:text-indigo-600">So funktioniert’s</a>
+          <a href="#pricing" class="hover:text-indigo-600">Preise</a>
+          <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+          <a href="#cta" class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-white font-medium hover:bg-indigo-700">Kostenlos testen</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
   <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
+  <section id="top" class="relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-12 sm:pt-24 sm:pb-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">
             Seriöses Trading mit <span class="text-indigo-600">eigenen Indikatoren</span> & <span class="text-indigo-600">klaren Signalen</span>
           </h1>
           <p class="mt-5 text-lg text-slate-600">
-            MVP (Market Vision Pro) macht Trading verständlich: eigene Indikatoren, klare Signale und Backtests – damit du Entscheidungen ruhig und nachvollziehbar triffst.
+            MVP bündelt maßgeschneiderte Indikatoren, Backtests und präzise Handelsanweisungen.
+            Für fokussierte, nachvollziehbare Entscheidungen – ohne Lärm, ohne Hype.
           </p>
-          <div class="mt-8 flex gap-3">
-            <a href="#cta" class="inline-flex px-6 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700">Kostenlos testen</a>
-            <a href="#funktionen" class="inline-flex px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50">Mehr erfahren</a>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#cta" class="inline-flex items-center rounded-md bg-indigo-600 px-5 py-3 text-white font-semibold hover:bg-indigo-700">Jetzt kostenlos starten</a>
+            <a href="#why" class="inline-flex items-center rounded-md border px-5 py-3 font-semibold hover:bg-slate-50">Mehr erfahren</a>
           </div>
-          <!-- Trust badges -->
-          <div class="mt-8 flex items-center gap-6 text-slate-500 text-sm">
-            <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span><span>DSGVO‑ready</span></div>
-            <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span><span>Schnell & responsiv</span></div>
-            <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span><span>Render‑bereit</span></div>
+          <div class="mt-6 flex items-center gap-4 text-sm text-slate-500">
+            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>DSGVO-ready</div>
+            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>Render-bereit</div>
+            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>Schnell & responsiv</div>
           </div>
         </div>
-        <div class="relative rounded-2xl border border-slate-200 shadow p-4"><img src="/assets/hero-illustration.svg" alt="MVP – übersichtliche Signale & Charts" class="rounded-xl w-full h-auto" /></div></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="absolute inset-x-0 -bottom-24 h-48 bg-gradient-to-b from-indigo-50/60 to-transparent pointer-events-none"></div>
-  </section>
-
-  <!-- Module Shortcuts -->
-  <section class="py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="#signalboard" class="rounded-2xl border border-slate-200 p-4 bg-white hover:shadow transition">
-          <div class="text-sm font-semibold">Signal‑Board</div>
-          <div class="text-xs text-slate-500">Aktuelle Chancen</div>
-        </a>
-        <a href="#risiko" class="rounded-2xl border border-slate-200 p-4 bg-white hover:shadow transition">
-          <div class="text-sm font-semibold"><span id="risiko"></span>Risikoleitplanken</div>
-          <div class="text-xs text-slate-500">Positionsgröße · SL/TP</div>
-        </a>
-        <a href="#backtests" class="rounded-2xl border border-slate-200 p-4 bg-white hover:shadow transition">
-          <div class="text-sm font-semibold">Backtests</div>
-          <div class="text-xs text-slate-500">Historische Robustheit</div>
-        </a>
-        <a href="#erklaerbar" class="rounded-2xl border border-slate-200 p-4 bg-white hover:shadow transition">
-          <div class="text-sm font-semibold">Erklärbarkeit</div>
-          <div class="text-xs text-slate-500">Warum ein Signal?</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Problem / Lösung (Vorteile) -->
-  <section id="produkt" class="py-20 bg-indigo-50/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto">
-        <h2 class="text-3xl font-bold tracking-tight">Warum Trader MVP mögen</h2>
-        <p class="mt-3 text-slate-600">Weniger Lärm, mehr Klarheit: MVP konzentriert sich auf das Wesentliche.</p>
-      </div>
-      <div class="mt-12 grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Transparente Signale</h3>
-          <p class="mt-2 text-slate-600">Eine Kernaussage, ein Call‑to‑Action, null Ablenkung.</p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Risikomanagement</h3>
-          <p class="mt-2 text-slate-600">Keine Framework‑Last nötig – trotzdem jederzeit erweiterbar.</p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Saubere Daten</h3>
-          <p class="mt-2 text-slate-600">Kurshistorien, Fundamentals und News – nachvollziehbar zusammengeführt.</p>
+        <div class="lg:pl-8">
+          <div class="rounded-2xl border bg-white p-4 shadow-sm">
+            <div class="aspect-[16/10] w-full rounded-xl border bg-slate-50 grid place-content-center">
+              <div class="text-center">
+                <div class="mx-auto mb-3 h-12 w-12 rounded-md bg-indigo-100 grid place-content-center text-indigo-700 font-bold">↗</div>
+                <p class="text-slate-500">Platzhalter für App-Screenshot / Hero-Bild</p>
+              </div>
+            </div>
+            <p class="mt-3 text-center text-xs text-slate-500">Screenshots folgen – MVP ist im aktiven Build.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Features -->
-  <section id="loesungen" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-12 items-start">
+  <!-- Vorteile -->
+  <section id="features" class="py-16 sm:py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold">Warum deine Landingpage zählt</h2>
+      <p class="mt-3 text-slate-600 max-w-3xl">
+        Klare Struktur, seriöses Wording, echte Performance-Vorteile. MVP spricht Trader an, die
+        Zahlen & Prozesse lieben – nicht Marketing-Floskeln.
+      </p>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="rounded-xl border bg-white p-6">
+          <h3 class="font-semibold">Eigene Indikatoren</h3>
+          <p class="mt-2 text-sm text-slate-600">Signale, die es so nicht „von der Stange“ gibt – entwickelt für Disziplin statt Bauchgefühl.</p>
+        </div>
+        <div class="rounded-xl border bg-white p-6">
+          <h3 class="font-semibold">Backtests, die tragen</h3>
+          <p class="mt-2 text-sm text-slate-600">Historische Robustheit statt Einzelfall. Szenarien, Drawdowns, Trefferquoten – transparent.</p>
+        </div>
+        <div class="rounded-xl border bg-white p-6">
+          <h3 class="font-semibold">Klare Handelsanweisungen</h3>
+          <p class="mt-2 text-sm text-slate-600">Vom Einstieg bis zum Exit – verständlich formuliert, reproduzierbar, dokumentiert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warum MVP -->
+  <section id="why" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
         <div>
-          <h2 class="text-3xl font-bold tracking-tight">Funktionen, die überzeugen</h2>
-          <ul class="mt-6 space-y-4 text-slate-700">
-            <li class="flex gap-3"><span class="mt-1">✔</span><span>Hero‑Bereich mit starkem Nutzenversprechen.</span></li>
-            <li class="flex gap-3"><span class="mt-1">✔</span><span>Feature‑Grid, Testimonial‑Boxen, FAQ.</span></li>
-            <li class="flex gap-3"><span class="mt-1">✔</span><span>Saubere Typographie, konsistente Abstände, klare Hierarchie.</span></li>
-            <li class="flex gap-3"><span class="mt-1">✔</span><span>Leicht anpassbar mit Tailwind Utility‑Klassen.</span></li>
+          <h2 class="text-3xl font-bold">Wozu MVP sinnvoll ist</h2>
+          <p class="mt-3 text-slate-600">
+            Wer seriös handeln will, braucht saubere Vorbereitung: Indikatoren, die passen. Regeln, die
+            man einhalten kann. Backtests, die mehr zeigen als schöne Charts.
+          </p>
+          <ul class="mt-6 space-y-3 text-slate-700">
+            <li>• Fokussiert auf Qualität statt Häufigkeit von Trades</li>
+            <li>• Konsistente Methodik für mehrere Märkte & Timeframes</li>
+            <li>• Dokumentierte Signale – nachvollziehbar für dich (und dein zukünftiges Team)</li>
           </ul>
         </div>
-        <div class="grid sm:grid-cols-2 gap-6"><div class="rounded-2xl border border-slate-200 p-6 bg-white"><div class="text-slate-400 mb-2">📊</div><h3 class="font-semibold"><span id="signalboard"></span>Signal-Board</h3><p class="mt-1 text-slate-600">Übersichtliche Liste aktueller Chancen, inklusive Zeitrahmen & Stärke.</p></div><div class="rounded-2xl border border-slate-200 p-6 bg-white"><div class="text-slate-400 mb-2">🛡️</div><h3 class="font-semibold"><span id="risiko"></span>Risikoleitplanken</h3><p class="mt-1 text-slate-600">Positionsgröße, SL/TP-Ideen & Max-Drawdown im Blick.</p></div><div class="rounded-2xl border border-slate-200 p-6 bg-white col-span-2"><img src="/assets/dashboard.svg" alt="MVP Dashboard – einfache Übersicht" class="rounded-xl w-full h-auto"/></div></div></div></div>
+        <div class="rounded-2xl border bg-white p-6 shadow-sm">
+          <h3 class="font-semibold">Was MVP innovativ macht</h3>
+          <p class="mt-2 text-sm text-slate-600">
+            Die Kombination aus eigenen Indikatoren, regelbasierten Setups und Backtest-Pipelines in
+            einem Tool – ohne Ablenkung, ohne Overfitting-Tricks.
+          </p>
+          <div class="mt-4 grid sm:grid-cols-2 gap-4">
+            <div class="rounded-lg border p-4">
+              <div class="text-xs font-medium text-indigo-700">Signal-Qualität</div>
+              <div class="mt-1 text-2xl font-bold">Fokus</div>
+            </div>
+            <div class="rounded-lg border p-4">
+              <div class="text-xs font-medium text-indigo-700">Backtest-Transparenz</div>
+              <div class="mt-1 text-2xl font-bold">Ehrlich</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="py-20 bg-indigo-50/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold tracking-tight text-center">Stimmen von Tradern</h2>
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <figure class="rounded-2xl border border-slate-200 bg-white p-6">
-          <blockquote class="text-slate-700">„Ich sehe endlich klar, wann ein Setup Sinn macht – und wann nicht.“</blockquote>
-          <figcaption class="mt-4 text-sm text-slate-500">— Alex M.</figcaption>
-        </figure>
-        <figure class="rounded-2xl border border-slate-200 bg-white p-6">
-          <blockquote class="text-slate-700">„Die Signale sind verständlich erklärt. Das nimmt Stress aus meinen Entscheidungen.“</blockquote>
-          <figcaption class="mt-4 text-sm text-slate-500">— Samira M.</figcaption>
-        </figure>
-        <figure class="rounded-2xl border border-slate-200 bg-white p-6">
-          <blockquote class="text-slate-700">„Backtests + simple Darstellung = weniger Overthinking.“</blockquote>
-          <figcaption class="mt-4 text-sm text-slate-500">— Jonas R.</figcaption>
-        </figure>
+  <!-- So funktionierts -->
+  <section id="how" class="py-16 sm:py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold">So funktioniert’s</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="rounded-xl border bg-white p-6">
+          <div class="text-sm font-semibold text-indigo-700">1 · Setup</div>
+          <p class="mt-2 text-sm text-slate-600">Watchlist anlegen, Indikatoren wählen, Regeln aktivieren.</p>
+        </div>
+        <div class="rounded-xl border bg-white p-6">
+          <div class="text-sm font-semibold text-indigo-700">2 · Backtest</div>
+          <p class="mt-2 text-sm text-slate-600">Historisch prüfen: Trefferquote, CRV, Drawdown, Robustheit.</p>
+        </div>
+        <div class="rounded-xl border bg-white p-6">
+          <div class="text-sm font-semibold text-indigo-700">3 · Live-Signale</div>
+          <p class="mt-2 text-sm text-slate-600">Klarer Entry/Exit-Plan. Disziplin, kein Rätselraten.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Preise -->
-  <section id="preise" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto">
-        <h2 class="text-3xl font-bold tracking-tight">Fair & einfach starten</h2>
-        <p class="mt-3 text-slate-600">Teste MVP in Ruhe – upgrade erst, wenn es zu dir passt.</p>
-      </div>
-      <div class="mt-12 grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Free</h3>
-          <p class="text-sm text-slate-500 mt-1">Für Ideen & Tests</p>
-          <p class="text-3xl font-bold mt-4">0 €</p>
-          <ul class="mt-4 space-y-2 text-sm text-slate-700">
-            <li>Statische Seite</li>
-            <li>Basis‑Sektionen</li>
-            <li>DSGVO‑Links</li>
-          </ul>
-          <a href="#cta" class="mt-6 inline-flex w-full justify-center px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50">Loslegen</a>
+  <section id="pricing" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold">Preise</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border p-6">
+          <div class="text-sm font-semibold text-slate-500">Starter</div>
+          <div class="mt-2 text-3xl font-bold">0€</div>
+          <p class="mt-2 text-sm text-slate-600">Einführung, Demo-Signale, Basis-Backtests.</p>
+          <a href="#cta" class="mt-4 inline-flex rounded-md bg-slate-900 px-4 py-2 text-white">Jetzt testen</a>
         </div>
-        <div class="rounded-2xl border-2 border-sky-600 p-6 bg-white shadow">
-          <h3 class="font-semibold">Pro</h3>
-          <p class="text-sm text-slate-500 mt-1">Für Projekte mit Ambition</p>
-          <p class="text-3xl font-bold mt-4">9 €<span class="text-base font-normal text-slate-500">/Monat</span></p>
-          <ul class="mt-4 space-y-2 text-sm text-slate-700">
-            <li>Kontaktformular</li>
-            <li>Blog/News‑Sektion</li>
-            <li>Einfache Analytics</li>
-          </ul>
-          <a href="#cta" class="mt-6 inline-flex w-full justify-center px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700">Kostenlos testen</a>
+        <div class="rounded-2xl border p-6 ring-2 ring-indigo-600">
+          <div class="text-sm font-semibold text-indigo-700">Pro (Empfohlen)</div>
+          <div class="mt-2 text-3xl font-bold">xx€/Monat</div>
+          <p class="mt-2 text-sm text-slate-600">Eigene Indikatoren, Backtests, Live-Signale, Support.</p>
+          <a href="#cta" class="mt-4 inline-flex rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700">Kostenlos starten</a>
         </div>
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Business</h3>
-          <p class="text-sm text-slate-500 mt-1">Für Teams & Marken</p>
-          <p class="text-3xl font-bold mt-4">Individuell</p>
-          <ul class="mt-4 space-y-2 text-sm text-slate-700">
-            <li>Custom Komponenten</li>
-            <li>Mehrsprachigkeit</li>
-            <li>Support & SLA</li>
-          </ul>
-          <a href="#cta" class="mt-6 inline-flex w-full justify-center px-4 py-2 rounded-xl border border-slate-300 hover:bg-slate-50">Anfragen</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="innovation" class="py-20 bg-indigo-50/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold tracking-tight">Was an MVP wirklich neu ist</h2>
-        <p class="mt-3 text-slate-600">Nicht nur „noch ein Indikator“, sondern ein klarer Prozess von Idee → Signal → Risiko → Review.</p>
-      </div>
-      <div class="mt-12 grid md:grid-cols-2 gap-6">
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Eigene Indikator‑Pipelines</h3>
-          <p class="mt-2 text-slate-600">Kombination aus Trend, Momentum und Volatilität – abgestimmt statt zufällig gestapelt.</p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold"><span id="erklaerbar"></span>Erklärbare Signale</h3>
-          <p class="mt-2 text-slate-600">Jedes Signal kommt mit kurzer Begründung (z. B. „%K kreuzt ↑, RSI dreht V‑förmig, MACD steigt“).</p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold"><span id="backtests"></span>Realistische Backtests</h3>
-          <p class="mt-2 text-slate-600">Einbezug von Slippage, Gebühren und Liquidität – Ergebnisse näher an der Praxis.</p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Risikoregeln als Playbooks</h3>
-          <p class="mt-2 text-slate-600">Konkrete Handlungsanweisungen für Entry, Positionsgröße und Ausstiegsszenarien.</p>
+        <div class="rounded-2xl border p-6">
+          <div class="text-sm font-semibold text-slate-500">Team</div>
+          <div class="mt-2 text-3xl font-bold">auf Anfrage</div>
+          <p class="mt-2 text-sm text-slate-600">Sitzungen, Setup-Review, Priorisierter Support.</p>
+          <a href="#cta" class="mt-4 inline-flex rounded-md border px-4 py-2">Kontakt</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-20 bg-indigo-50/30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold tracking-tight text-center">Fragen, kurz beantwortet</h2>
-        <div class="mt-10 divide-y divide-slate-200 border border-slate-200 rounded-2xl bg-white">
-          <details class="group p-6">
-            <summary class="flex cursor-pointer list-none items-center justify-between">
-              <span class="font-medium">Brauche ich Vorkenntnisse im Trading?</span>
-              <span class="transition group-open:rotate-180">⌄</span>
-            </summary>
-            <p class="mt-3 text-slate-600">Nein. Wir helfen mit klaren Texten und Beispielen. Fortgeschrittene finden dennoch genug Tiefe.</p>
-          </details>
-          <details class="group p-6">
-            <summary class="flex cursor-pointer list-none items-center justify-between">
-              <span class="font-medium">Wie gehen wir mit Risiko um?</span>
-              <span class="transition group-open:rotate-180">⌄</span>
-            </summary>
-            <p class="mt-3 text-slate-600">Lege ein Git‑Repo an, verbinde es als <em>Static Site</em> bei Render, ohne Build‑Schritt. Publish Directory: <code>.</code></p>
-          </details>
-          <details class="group p-6">
-            <summary class="flex cursor-pointer list-none items-center justify-between">
-              <span class="font-medium">Ist das rechtlich sauber?</span>
-              <span class="transition group-open:rotate-180">⌄</span>
-            </summary>
-            <p class="mt-3 text-slate-600">Es gibt Impressum, Datenschutz & Risikohinweis. Inhalte sind keine Anlageberatung.</p>
-          </details>
+  <section id="faq" class="py-16 sm:py-20 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold">FAQ</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="rounded-xl border bg-white p-6">
+          <h3 class="font-semibold">Ist MVP eine Anlageberatung?</h3>
+          <p class="mt-2 text-sm text-slate-600">Nein. MVP liefert Tools, Backtests und Signale. Entscheidungen triffst du selbst.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-12 items-start">
-        <div>
-          <h2 class="text-3xl font-bold tracking-tight">Wer wir sind</h2>
-          <p class="mt-4 text-slate-700">MVP ist ein unabhängiges Projekt aus Deutschland. Wir verbinden Wirtschafts‑Know-how mit Data‑Science und Trading‑Praxis. Unser Ziel: Klarheit statt Overload.</p>
-          <p class="mt-3 text-slate-700">Wir entwickeln Indikatoren und Playbooks selbst, testen sie gründlich und erklären sie verständlich. So bleibt Trading fokussiert und nachvollziehbar.</p>
-        </div>
-        <div>
-          <img src="/assets/feature-cards.svg" alt="MVP Werte & Prinzipien" class="rounded-2xl border border-slate-200 shadow w-full h-auto"/>
-          <ul class="mt-6 space-y-2 text-slate-700">
-            <li>• Unabhängig, transparent, lernend</li>
-            <li>• Kein Hype – nur reproduzierbare Prozesse</li>
-            <li>• Nutzerfeedback fließt in jede Version ein</li>
-          </ul>
+        <div class="rounded-xl border bg-white p-6">
+          <h3 class="font-semibold">Welche Märkte?</h3>
+          <p class="mt-2 text-sm text-slate-600">Aktien im Fokus; Erweiterungen geplant.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section id="cta" class="py-20">
-    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold tracking-tight">Bereit für den ersten Eindruck?</h2>
-      <p class="mt-3 text-slate-600">Passe Texte, Farben und Bilder an – deploye in Minuten.</p>
-      <a href="mailto:you@example.com" class="mt-6 inline-flex px-6 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700">Kontakt aufnehmen</a>
-      <p class="mt-4 text-xs text-slate-500">Hinweis: Keine Anlageberatung. Inhalte dienen Informations- & Ausbildungszwecken. Trading birgt Risiken; eigene Recherche erforderlich.</p>
-    </div>
-  </section>
-
-  <section id="kontakt" class="py-20 bg-indigo-50/30">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold tracking-tight">Kontakt & Demo</h2>
-      <p class="mt-3 text-slate-600">Fragen? Eine kurze Demo? Schreib uns – wir melden uns zeitnah.</p>
-      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="mailto:kurzendoerfer.j@gmail.com" class="inline-flex px-6 py-3 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700">E‑Mail schreiben</a>
-        <a href="#cta" class="inline-flex px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50">Kostenlos testen</a>
-      </div>
-      <p class="mt-4 text-xs text-slate-500">Hinweis: Keine Anlageberatung. Inhalte dienen Informations‑ & Ausbildungszwecken.</p>
+  <section id="cta" class="py-16 sm:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold">Starte mit klaren Regeln. Handle fokussiert.</h2>
+      <p class="mt-3 text-slate-600">Teste MVP kostenlos und sieh, wie sich dein Prozess verändert.</p>
+      <a href="#" class="mt-6 inline-flex items-center rounded-md bg-indigo-600 px-6 py-3 text-white font-semibold hover:bg-indigo-700">Kostenlos testen</a>
+      <p class="mt-3 text-xs text-slate-500">Kein Abo-Zwang in der Testphase.</p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-200 py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-        <p>© <span id="year"></span> Market Vision Pro. Alle Rechte vorbehalten.</p>
-        <div class="flex gap-6">
-          <a href="/legal/impressum.html" class="hover:text-slate-700">Impressum</a>
-          <a href="/legal/datenschutz.html" class="hover:text-slate-700">Datenschutz</a>
+  <footer class="border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 text-sm text-slate-600">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-md bg-indigo-600 text-white text-sm font-bold">M</span>
+          <span class="font-semibold">Market&nbsp;Vision&nbsp;Pro</span>
         </div>
+        <nav class="flex flex-wrap gap-4">
+          <a href="#features" class="hover:text-indigo-600">Vorteile</a>
+          <a href="#why" class="hover:text-indigo-600">Warum</a>
+          <a href="#how" class="hover:text-indigo-600">Ablauf</a>
+          <a href="#pricing" class="hover:text-indigo-600">Preise</a>
+          <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+          <a href="/legal/risikohinweis.html" class="hover:text-indigo-600">Risikohinweis</a>
+        </nav>
       </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 text-xs text-slate-500">
-      <a href="/legal/risikohinweis.html" class="hover:text-slate-700">Risikohinweis</a>
+      <p class="mt-6 text-xs text-slate-500">© <span id="y"></span> Market Vision Pro. Kein Angebot/keine Aufforderung zum Kauf/Verkauf von Finanzinstrumenten. Keine Anlageberatung.</p>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
