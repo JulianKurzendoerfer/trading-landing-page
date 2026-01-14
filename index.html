@@ -1,232 +1,582 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Market Vision Pro kombiniert Indikatoren, Signal-Logik und Marktstruktur zu klaren Entscheidungsgrundlagen – ohne Hype, ohne Social-Noise." />
   <title>Market Vision Pro (MVP) – Seriöses Trading mit klaren Signalen</title>
-  <meta name="description" content="Market Vision Pro (MVP): maßgeschneiderte Indikatoren, Backtests und klare Handelsanweisungen für fokussierte, nachvollziehbare Entscheidungen.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>html{scroll-behavior:smooth} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",sans-serif}</style>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#0f1731;
+      --text:#eaf0ff;
+      --muted:#b9c3e6;
+      --line:rgba(255,255,255,.12);
+      --brand:#6d5efc;
+      --brand2:#4aa3ff;
+      --shadow: 0 16px 50px rgba(0,0,0,.45);
+      --radius: 16px;
+      --radius2: 22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(109,94,252,.22), transparent 55%),
+        radial-gradient(900px 600px at 85% 25%, rgba(74,163,255,.18), transparent 55%),
+        radial-gradient(700px 500px at 50% 95%, rgba(109,94,252,.12), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    .nav{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,16,32,.80), rgba(11,16,32,.55));
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px;
+    }
+    .logo{
+      width:36px;height:36px;border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 30px rgba(109,94,252,.30);
+      display:grid;place-items:center;font-weight:800;
+    }
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{
+      font-size:14px;color:var(--muted);
+      padding:8px 10px;border-radius:12px;
+      transition: background .2s ease, color .2s ease;
+    }
+    .nav-links a:hover{background:rgba(255,255,255,.06);color:var(--text)}
+    .nav-cta{display:flex;gap:10px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 14px;border-radius:14px;font-weight:600;font-size:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px);background: rgba(255,255,255,.09);border-color: rgba(255,255,255,.22)}
+    .btn-primary{
+      border:1px solid rgba(109,94,252,.55);
+      background: linear-gradient(135deg, rgba(109,94,252,.95), rgba(74,163,255,.85));
+      box-shadow: 0 14px 40px rgba(109,94,252,.25);
+    }
+    .btn-primary:hover{border-color: rgba(255,255,255,.25)}
+    .hero{padding:72px 0 40px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:34px;
+      align-items:center;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height:1.02;
+      letter-spacing:-.6px;
+    }
+    .accent{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .lead{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+      max-width:56ch;
+    }
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .trust{
+      display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+      color:var(--muted);font-size:13px;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:#2ee59d;
+      box-shadow:0 0 0 5px rgba(46,229,157,.10);
+      display:inline-block;margin-right:8px;
+    }
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .mock{
+      padding:16px;
+    }
+    .mock-inner{
+      height:360px;
+      border-radius:18px;
+      border:1px dashed rgba(255,255,255,.20);
+      background:
+        radial-gradient(600px 240px at 20% 30%, rgba(109,94,252,.16), transparent 65%),
+        radial-gradient(500px 260px at 80% 40%, rgba(74,163,255,.12), transparent 65%),
+        rgba(255,255,255,.03);
+      display:grid;place-items:center;
+      color:rgba(234,240,255,.70);
+      text-align:center;
+      padding:18px;
+    }
+    .mock-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      font-size:12px;color:rgba(234,240,255,.78);
+      margin-bottom:10px;
+    }
+    .mock-note{font-size:12px;color:rgba(234,240,255,.58);margin-top:10px}
+    section{padding:54px 0}
+    .section-title{
+      font-size:26px;margin:0 0 10px;letter-spacing:-.3px
+    }
+    .section-sub{
+      margin:0 0 22px;color:var(--muted);line-height:1.6;max-width:70ch
+    }
+    .grid-4{
+      display:grid;grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+    }
+    .card{
+      padding:16px 16px 14px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+      min-height: 140px;
+    }
+    .card:hover{transform: translateY(-2px);background: rgba(255,255,255,.055);border-color: rgba(255,255,255,.18)}
+    .card h3{margin:0 0 8px;font-size:15px;letter-spacing:-.1px}
+    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .icon{
+      width:34px;height:34px;border-radius:12px;
+      background: rgba(109,94,252,.18);
+      border:1px solid rgba(109,94,252,.32);
+      display:grid;place-items:center;
+      margin-bottom:10px;
+    }
+    .icon svg{opacity:.95}
+    .split{
+      display:grid;grid-template-columns: 1fr 1fr;gap:18px;align-items:start
+    }
+    .bullets{
+      margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px
+    }
+    .bullets li{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.035);
+      color:var(--muted);font-size:13px;line-height:1.55;
+    }
+    .check{
+      width:18px;height:18px;border-radius:6px;
+      background: rgba(46,229,157,.18);
+      border:1px solid rgba(46,229,157,.35);
+      margin-top:1px;
+      flex:0 0 auto;
+      display:grid;place-items:center;
+    }
+    .emph{
+      margin-top:14px;
+      padding:14px 14px;
+      border-radius:16px;
+      background: rgba(109,94,252,.10);
+      border:1px solid rgba(109,94,252,.22);
+      color: rgba(234,240,255,.92);
+      line-height:1.55;
+    }
+    .steps{
+      display:grid;grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .step{
+      padding:16px;border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+    .step .n{
+      width:28px;height:28px;border-radius:10px;
+      display:grid;place-items:center;
+      background: rgba(74,163,255,.16);
+      border:1px solid rgba(74,163,255,.30);
+      font-weight:700;font-size:13px;margin-bottom:10px;
+    }
+    .step h3{margin:0 0 6px;font-size:15px}
+    .step p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .cta{
+      padding:34px 0 70px;
+    }
+    .cta-box{
+      display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+      padding:20px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(109,94,252,.14), rgba(74,163,255,.10));
+      box-shadow: var(--shadow);
+    }
+    .cta-box h2{margin:0;font-size:20px;letter-spacing:-.2px}
+    .cta-box p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
+    footer{
+      padding:26px 0 36px;
+      border-top:1px solid var(--line);
+      color:rgba(234,240,255,.72);
+      font-size:12px;
+    }
+    .footer-grid{
+      display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+    }
+    .footer-links{display:flex;gap:12px;flex-wrap:wrap}
+    .footer-links a{color:rgba(234,240,255,.72);padding:8px 10px;border-radius:12px;border:1px solid transparent}
+    .footer-links a:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);color:var(--text)}
+    .fineprint{
+      margin-top:12px;
+      color:rgba(234,240,255,.56);
+      line-height:1.6;
+      max-width: 100ch;
+    }
+    .hide-desktop{display:none}
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr;gap:16px}
+      .mock-inner{height:300px}
+      .grid-4{grid-template-columns:1fr 1fr}
+      .split{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .hide-desktop{display:inline-flex}
+    }
+    @media (max-width: 520px){
+      .grid-4{grid-template-columns:1fr}
+      .btn{width:100%}
+      .hero-ctas{flex-direction:column}
+    }
+  </style>
 </head>
-<body class="bg-white text-slate-900">
-  <!-- Navbar -->
-  <header class="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="h-16 flex items-center justify-between">
-        <a href="#top" class="flex items-center gap-2">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-indigo-600 text-white font-bold">M</span>
-          <span class="font-semibold">Market&nbsp;Vision&nbsp;Pro</span>
-          <span class="ml-2 text-xs text-slate-500">MVP</span>
+<body>
+
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Market Vision Pro">
+          <div class="logo">M</div>
+          <div>Market Vision Pro</div>
         </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#features" class="hover:text-indigo-600">Vorteile</a>
-          <a href="#why" class="hover:text-indigo-600">Warum MVP?</a>
-          <a href="#how" class="hover:text-indigo-600">So funktioniert’s</a>
-          <a href="#pricing" class="hover:text-indigo-600">Preise</a>
-          <a href="#faq" class="hover:text-indigo-600">FAQ</a>
-          <a href="#cta" class="inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-white font-medium hover:bg-indigo-700">Kostenlos testen</a>
+
+        <nav class="nav-links" aria-label="Navigation">
+          <a href="#vorteile">Vorteile</a>
+          <a href="#warum">Warum MVP?</a>
+          <a href="#workflow">So funktioniert’s</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#kontakt">Kontakt</a>
         </nav>
+
+        <div class="nav-cta">
+          <a class="btn hide-desktop" href="#kontakt">Kontakt</a>
+          <a class="btn btn-primary" href="#kontakt">Analyse starten</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="top" class="relative">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-12 sm:pt-24 sm:pb-20">
-      <div class="grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">
-            Seriöses Trading mit <span class="text-indigo-600">eigenen Indikatoren</span> & <span class="text-indigo-600">klaren Signalen</span>
-          </h1>
-          <p class="mt-5 text-lg text-slate-600">
-            MVP bündelt maßgeschneiderte Indikatoren, Backtests und präzise Handelsanweisungen.
-            Für fokussierte, nachvollziehbare Entscheidungen – ohne Lärm, ohne Hype.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#cta" class="inline-flex items-center rounded-md bg-indigo-600 px-5 py-3 text-white font-semibold hover:bg-indigo-700">Jetzt kostenlos starten</a>
-            <a href="#why" class="inline-flex items-center rounded-md border px-5 py-3 font-semibold hover:bg-slate-50">Mehr erfahren</a>
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h1>
+              Triff bessere Trading-Entscheidungen.<br />
+              <span class="accent">Nicht schneller – sondern fundierter.</span>
+            </h1>
+
+            <p class="lead">
+              Market Vision Pro kombiniert technische Indikatoren, Signal-Logik und Marktstruktur
+              zu klaren Entscheidungsgrundlagen – ohne Hype, ohne Social-Noise.
+            </p>
+
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#kontakt">Analyse starten</a>
+              <a class="btn" href="#workflow">So funktioniert MVP</a>
+            </div>
+
+            <div class="trust" aria-label="Trust signals">
+              <span><span class="dot"></span>Entwickelt für aktive Trader</span>
+              <span><span class="dot"></span>Datenbasiert</span>
+              <span><span class="dot"></span>Fokus auf Qualität</span>
+            </div>
           </div>
-          <div class="mt-6 flex items-center gap-4 text-sm text-slate-500">
-            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>DSGVO-ready</div>
-            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>Render-bereit</div>
-            <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>Schnell & responsiv</div>
-          </div>
-        </div>
-        <div class="lg:pl-8">
-          <div class="rounded-2xl border bg-white p-4 shadow-sm">
-            <div class="aspect-[16/10] w-full rounded-xl border bg-slate-50 grid place-content-center">
-              <div class="text-center">
-                <div class="mx-auto mb-3 h-12 w-12 rounded-md bg-indigo-100 grid place-content-center text-indigo-700 font-bold">↗</div>
-                <p class="text-slate-500">Platzhalter für App-Screenshot / Hero-Bild</p>
+
+          <div class="panel">
+            <div class="mock">
+              <div class="mock-inner">
+                <div>
+                  <div class="mock-badge">
+                    <span style="width:10px;height:10px;border-radius:999px;background:rgba(74,163,255,.75);display:inline-block"></span>
+                    App-Screenshot folgt
+                  </div>
+                  <div style="font-weight:700;letter-spacing:-.2px;margin-bottom:6px">Platzhalter für App-Screenshot / Hero-Bild</div>
+                  <div style="font-size:13px;line-height:1.55;max-width:44ch;margin:0 auto;color:rgba(234,240,255,.68)">
+                    Nutze hier später einen echten Screenshot aus dem Dashboard.
+                    Unfertig ist okay – Authentizität wirkt stärker als Stock-Design.
+                  </div>
+                  <div class="mock-note">Screenshots folgen – MVP ist im aktiven Build.</div>
+                </div>
               </div>
             </div>
-            <p class="mt-3 text-center text-xs text-slate-500">Screenshots folgen – MVP ist im aktiven Build.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="vorteile">
+      <div class="container">
+        <h2 class="section-title">Alles, was du für fundierte Trades brauchst – an einem Ort</h2>
+        <p class="section-sub">
+          Klarer Fokus, saubere Berechnung und Signale, die nicht nur “blinken”, sondern nachvollziehbar sind.
+        </p>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 19V5" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                <path d="M4 19H20" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                <path d="M7 15l3-3 3 2 4-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Technische Analyse</h3>
+            <p>RSI, MACD, Bollinger Bands, Stochastic (Fast &amp; Slow) sauber berechnet und visuell klar dargestellt.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon" aria-hidden="true" style="background:rgba(74,163,255,.16);border-color:rgba(74,163,255,.30)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l2.2 6.2L21 10l-5 4 1.5 7L12 18l-5.5 3 1.5-7-5-4 6.8-1.8L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Kombinierte Signale</h3>
+            <p>Indikatoren werden nicht isoliert betrachtet, sondern logisch zusammengeführt.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon" aria-hidden="true" style="background:rgba(46,229,157,.14);border-color:rgba(46,229,157,.26)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 12c3-8 13-8 16 0-3 8-13 8-16 0z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Markt- &amp; Trendstruktur</h3>
+            <p>Erkenne Trendphasen, Übertreibungen und potenzielle Reversal-Zonen.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon" aria-hidden="true" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 22s8-4 8-10V7l-8-3-8 3v5c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Klarer Fokus</h3>
+            <p>Keine Community-Ablenkung. Keine Signalgurus. Nur Daten.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Vorteile -->
-  <section id="features" class="py-16 sm:py-20 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 class="text-3xl font-bold">Warum deine Landingpage zählt</h2>
-      <p class="mt-3 text-slate-600 max-w-3xl">
-        Klare Struktur, seriöses Wording, echte Performance-Vorteile. MVP spricht Trader an, die
-        Zahlen & Prozesse lieben – nicht Marketing-Floskeln.
-      </p>
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <div class="rounded-xl border bg-white p-6">
-          <h3 class="font-semibold">Eigene Indikatoren</h3>
-          <p class="mt-2 text-sm text-slate-600">Signale, die es so nicht „von der Stange“ gibt – entwickelt für Disziplin statt Bauchgefühl.</p>
-        </div>
-        <div class="rounded-xl border bg-white p-6">
-          <h3 class="font-semibold">Backtests, die tragen</h3>
-          <p class="mt-2 text-sm text-slate-600">Historische Robustheit statt Einzelfall. Szenarien, Drawdowns, Trefferquoten – transparent.</p>
-        </div>
-        <div class="rounded-xl border bg-white p-6">
-          <h3 class="font-semibold">Klare Handelsanweisungen</h3>
-          <p class="mt-2 text-sm text-slate-600">Vom Einstieg bis zum Exit – verständlich formuliert, reproduzierbar, dokumentiert.</p>
+    <section id="warum">
+      <div class="container">
+        <div class="split">
+          <div>
+            <h2 class="section-title">Für Trader, die Entscheidungen ernst nehmen</h2>
+            <p class="section-sub">
+              Market Vision Pro richtet sich bewusst nicht an Anfänger,
+              sondern an Marktteilnehmer, die verstehen wollen warum ein Trade Sinn macht.
+            </p>
+
+            <ul class="bullets">
+              <li><span class="check" aria-hidden="true">✓</span><span>Aktive Aktien-Trader</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span>Options-Trader (Put &amp; Call)</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span>Ambitionierte Privatinvestoren</span></li>
+              <li><span class="check" aria-hidden="true">✓</span><span>Datengetriebene Marktanalysten</span></li>
+            </ul>
+
+            <div class="emph">
+              Wenn du Signale verstehen willst statt ihnen blind zu folgen, bist du hier richtig.
+            </div>
+          </div>
+
+          <div class="panel" style="padding:18px">
+            <h3 style="margin:0 0 10px;font-size:16px;letter-spacing:-.1px">Warum Market Vision Pro?</h3>
+            <div style="display:grid;gap:10px">
+              <div class="bullets" style="margin:0">
+                <div class="card" style="min-height:auto">
+                  <h3 style="margin:0 0 6px">Entscheidungslogik statt nur Charts</h3>
+                  <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.55">
+                    Fokus auf Struktur, Signale und Entscheidungsgrundlagen – nicht auf endlose Settings.
+                  </p>
+                </div>
+                <div class="card" style="min-height:auto">
+                  <h3 style="margin:0 0 6px">Kombination statt Einzel-Signale</h3>
+                  <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.55">
+                    Mehrere Indikatoren werden zusammengeführt, um isolierte Fehlsignale zu reduzieren.
+                  </p>
+                </div>
+                <div class="card" style="min-height:auto">
+                  <h3 style="margin:0 0 6px">Reduziertes Interface</h3>
+                  <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.55">
+                    Weniger Ablenkung – mehr Klarheit beim Entscheiden.
+                  </p>
+                </div>
+                <div class="card" style="min-height:auto">
+                  <h3 style="margin:0 0 6px">Erweiterbar</h3>
+                  <p style="margin:0;color:var(--muted);font-size:13px;line-height:1.55">
+                    Ausgelegt für Options- &amp; Risiko-Analysen und Backtesting.
+                  </p>
+                </div>
+              </div>
+
+              <div class="emph" style="background:rgba(74,163,255,.08);border-color:rgba(74,163,255,.18)">
+                Market Vision Pro ist kein Chart-Tool.<br/>Es ist ein Entscheidungs-Tool.
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Warum MVP -->
-  <section id="why" class="py-16 sm:py-20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="grid lg:grid-cols-2 gap-10 items-start">
-        <div>
-          <h2 class="text-3xl font-bold">Wozu MVP sinnvoll ist</h2>
-          <p class="mt-3 text-slate-600">
-            Wer seriös handeln will, braucht saubere Vorbereitung: Indikatoren, die passen. Regeln, die
-            man einhalten kann. Backtests, die mehr zeigen als schöne Charts.
-          </p>
-          <ul class="mt-6 space-y-3 text-slate-700">
-            <li>• Fokussiert auf Qualität statt Häufigkeit von Trades</li>
-            <li>• Konsistente Methodik für mehrere Märkte & Timeframes</li>
-            <li>• Dokumentierte Signale – nachvollziehbar für dich (und dein zukünftiges Team)</li>
-          </ul>
-        </div>
-        <div class="rounded-2xl border bg-white p-6 shadow-sm">
-          <h3 class="font-semibold">Was MVP innovativ macht</h3>
-          <p class="mt-2 text-sm text-slate-600">
-            Die Kombination aus eigenen Indikatoren, regelbasierten Setups und Backtest-Pipelines in
-            einem Tool – ohne Ablenkung, ohne Overfitting-Tricks.
-          </p>
-          <div class="mt-4 grid sm:grid-cols-2 gap-4">
-            <div class="rounded-lg border p-4">
-              <div class="text-xs font-medium text-indigo-700">Signal-Qualität</div>
-              <div class="mt-1 text-2xl font-bold">Fokus</div>
-            </div>
-            <div class="rounded-lg border p-4">
-              <div class="text-xs font-medium text-indigo-700">Backtest-Transparenz</div>
-              <div class="mt-1 text-2xl font-bold">Ehrlich</div>
-            </div>
+    <section id="workflow">
+      <div class="container">
+        <h2 class="section-title">So unterstützt dich MVP im Trading-Alltag</h2>
+        <p class="section-sub">
+          Der Workflow ist bewusst simpel: Markt wählen, Analyse verstehen, Entscheidung treffen.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="n">1</div>
+            <h3>Markt auswählen</h3>
+            <p>Aktie oder Markt eingeben</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <h3>Analyse verstehen</h3>
+            <p>Indikatoren + Signale logisch kombiniert</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <h3>Entscheidung treffen</h3>
+            <p>Auf Basis von Daten – nicht Emotionen</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- So funktionierts -->
-  <section id="how" class="py-16 sm:py-20 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 class="text-3xl font-bold">So funktioniert’s</h2>
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="rounded-xl border bg-white p-6">
-          <div class="text-sm font-semibold text-indigo-700">1 · Setup</div>
-          <p class="mt-2 text-sm text-slate-600">Watchlist anlegen, Indikatoren wählen, Regeln aktivieren.</p>
+    <section id="roadmap">
+      <div class="container">
+        <h2 class="section-title">In aktiver Entwicklung – mit klarer Roadmap</h2>
+        <p class="section-sub">
+          MVP wird kontinuierlich erweitert. Geplante Module:
+        </p>
+
+        <div class="grid-4">
+          <div class="card" style="min-height:auto">
+            <h3>Options-Strategie-Analysen</h3>
+            <p>Strukturierte Auswertung von Put/Call-Strategien.</p>
+          </div>
+          <div class="card" style="min-height:auto">
+            <h3>Risiko- &amp; Wahrscheinlichkeitsmodelle</h3>
+            <p>Bessere Entscheidungsgrundlagen durch Risiko-Logik.</p>
+          </div>
+          <div class="card" style="min-height:auto">
+            <h3>Watchlists &amp; Alerts</h3>
+            <p>Relevante Setups schneller erkennen.</p>
+          </div>
+          <div class="card" style="min-height:auto">
+            <h3>Backtesting-Funktionen</h3>
+            <p>Strategien nachvollziehbar testen statt raten.</p>
+          </div>
         </div>
-        <div class="rounded-xl border bg-white p-6">
-          <div class="text-sm font-semibold text-indigo-700">2 · Backtest</div>
-          <p class="mt-2 text-sm text-slate-600">Historisch prüfen: Trefferquote, CRV, Drawdown, Robustheit.</p>
-        </div>
-        <div class="rounded-xl border bg-white p-6">
-          <div class="text-sm font-semibold text-indigo-700">3 · Live-Signale</div>
-          <p class="mt-2 text-sm text-slate-600">Klarer Entry/Exit-Plan. Disziplin, kein Rätselraten.</p>
+
+        <div class="emph" style="margin-top:16px">
+          Kein Versprechen von Gewinnen – sondern bessere Entscheidungen.
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Preise -->
-  <section id="pricing" class="py-16 sm:py-20">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 class="text-3xl font-bold">Preise</h2>
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl border p-6">
-          <div class="text-sm font-semibold text-slate-500">Starter</div>
-          <div class="mt-2 text-3xl font-bold">0€</div>
-          <p class="mt-2 text-sm text-slate-600">Einführung, Demo-Signale, Basis-Backtests.</p>
-          <a href="#cta" class="mt-4 inline-flex rounded-md bg-slate-900 px-4 py-2 text-white">Jetzt testen</a>
+    <section class="cta" id="kontakt">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Bereit für strukturierteres Trading?</h2>
+            <p>Keine Kreditkarte · Kein Marketing-Spam · Fokus auf Qualität</p>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="#" onclick="return openMail()">Analyse starten</a>
+            <a class="btn" href="#top">Zurück nach oben</a>
+          </div>
         </div>
-        <div class="rounded-2xl border p-6 ring-2 ring-indigo-600">
-          <div class="text-sm font-semibold text-indigo-700">Pro (Empfohlen)</div>
-          <div class="mt-2 text-3xl font-bold">xx€/Monat</div>
-          <p class="mt-2 text-sm text-slate-600">Eigene Indikatoren, Backtests, Live-Signale, Support.</p>
-          <a href="#cta" class="mt-4 inline-flex rounded-md bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700">Kostenlos starten</a>
-        </div>
-        <div class="rounded-2xl border p-6">
-          <div class="text-sm font-semibold text-slate-500">Team</div>
-          <div class="mt-2 text-3xl font-bold">auf Anfrage</div>
-          <p class="mt-2 text-sm text-slate-600">Sitzungen, Setup-Review, Priorisierter Support.</p>
-          <a href="#cta" class="mt-4 inline-flex rounded-md border px-4 py-2">Kontakt</a>
+
+        <div style="margin-top:14px;color:rgba(234,240,255,.62);font-size:13px;line-height:1.6">
+          Kontakt: <a href="#" onclick="return openMail()" style="text-decoration:underline">support@market-vision-pro.com</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FAQ -->
-  <section id="faq" class="py-16 sm:py-20 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <h2 class="text-3xl font-bold">FAQ</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="rounded-xl border bg-white p-6">
-          <h3 class="font-semibold">Ist MVP eine Anlageberatung?</h3>
-          <p class="mt-2 text-sm text-slate-600">Nein. MVP liefert Tools, Backtests und Signale. Entscheidungen triffst du selbst.</p>
-        </div>
-        <div class="rounded-xl border bg-white p-6">
-          <h3 class="font-semibold">Welche Märkte?</h3>
-          <p class="mt-2 text-sm text-slate-600">Aktien im Fokus; Erweiterungen geplant.</p>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>© <span id="y"></span> Market Vision Pro</div>
+        <div class="footer-links">
+          <a href="#impressum">Impressum</a>
+          <a href="#datenschutz">Datenschutz</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section id="cta" class="py-16 sm:py-24">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold">Starte mit klaren Regeln. Handle fokussiert.</h2>
-      <p class="mt-3 text-slate-600">Teste MVP kostenlos und sieh, wie sich dein Prozess verändert.</p>
-      <a href="#" class="mt-6 inline-flex items-center rounded-md bg-indigo-600 px-6 py-3 text-white font-semibold hover:bg-indigo-700">Kostenlos testen</a>
-      <p class="mt-3 text-xs text-slate-500">Kein Abo-Zwang in der Testphase.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="border-t border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 text-sm text-slate-600">
-      <div class="flex flex-wrap items-center justify-between gap-4">
-        <div class="flex items-center gap-2">
-          <span class="inline-flex h-7 w-7 items-center justify-center rounded-md bg-indigo-600 text-white text-sm font-bold">M</span>
-          <span class="font-semibold">Market&nbsp;Vision&nbsp;Pro</span>
-        </div>
-        <nav class="flex flex-wrap gap-4">
-          <a href="#features" class="hover:text-indigo-600">Vorteile</a>
-          <a href="#why" class="hover:text-indigo-600">Warum</a>
-          <a href="#how" class="hover:text-indigo-600">Ablauf</a>
-          <a href="#pricing" class="hover:text-indigo-600">Preise</a>
-          <a href="#faq" class="hover:text-indigo-600">FAQ</a>
-          <a href="/legal/risikohinweis.html" class="hover:text-indigo-600">Risikohinweis</a>
-        </nav>
+      <div class="fineprint" id="impressum">
+        <strong>Impressum (Platzhalter)</strong><br/>
+        Betreiber: Julian Kurzendörfer · Leipzig, Deutschland · E-Mail: support@market-vision-pro.com
       </div>
-      <p class="mt-6 text-xs text-slate-500">© <span id="y"></span> Market Vision Pro. Kein Angebot/keine Aufforderung zum Kauf/Verkauf von Finanzinstrumenten. Keine Anlageberatung.</p>
+
+      <div class="fineprint" id="datenschutz">
+        <strong>Datenschutz (Platzhalter)</strong><br/>
+        Diese Seite nutzt derzeit keine Tracking-Cookies. Sobald Analyse- oder Log-Funktionen aktiv sind, werden Datenschutzhinweise aktualisiert.
+      </div>
+
+      <div class="fineprint">
+        <strong>Kein Financial Advice:</strong> Inhalte dienen ausschließlich Informationszwecken und stellen keine Anlageberatung, Empfehlung oder Aufforderung zum Kauf/Verkauf dar. Trading ist risikobehaftet.
+      </div>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    function openMail(){
+      window.location.href = "mailto:support@market-vision-pro.com?subject=MVP%20Analyse%20starten&body=Hi%2C%20ich%20m%C3%B6chte%20MVP%20testen.%20Bitte%20schickt%20mir%20Zugang%2FInfos.";
+      return false;
+    }
+  </script>
+
 </body>
 </html>
