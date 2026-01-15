@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Market Vision Pro – Abo wählen</title>
+  <meta name="description" content="Wähle dein MVP-Abo und starte die Analyse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#eef2ff;
+      --bg2:#f6f7fb;
+      --ink:#0b1220;
+      --muted:#4b5569;
+      --muted2:#6b7280;
+      --line:rgba(2,6,23,.10);
+      --card:#ffffff;
+      --shadow:0 18px 60px rgba(2,6,23,.10);
+      --brand:#4f46e5;
+      --brand2:#2563eb;
+      --green:#16a34a;
+      --radius:16px;
+      --radius2:22px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 700px at 12% 10%, rgba(79,70,229,.16), transparent 60%),
+        radial-gradient(900px 600px at 88% 18%, rgba(37,99,235,.12), transparent 58%),
+        radial-gradient(700px 520px at 50% 98%, rgba(79,70,229,.08), transparent 62%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 45%, #ffffff 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1040px;margin:0 auto;padding:0 20px}
+    header{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(246,247,251,.92), rgba(246,247,251,.72));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .logo{
+      width:36px;height:36px;border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 12px 30px rgba(79,70,229,.18);
+      display:grid;place-items:center;font-weight:800;color:#fff;
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 14px;border-radius:14px;font-weight:600;font-size:14px;
+      border:1px solid rgba(2,6,23,.12);
+      background: rgba(255,255,255,.75);
+      color:var(--ink);
+      transition: transform .15s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px);background: rgba(255,255,255,.95);border-color: rgba(2,6,23,.16)}
+    .btn-primary{
+      border:1px solid rgba(79,70,229,.25);
+      background: linear-gradient(135deg, rgba(79,70,229,.96), rgba(37,99,235,.92));
+      color:#fff;
+      box-shadow: 0 18px 45px rgba(79,70,229,.20);
+    }
+    .btn-primary:hover{box-shadow: 0 22px 55px rgba(79,70,229,.22)}
+    main{padding:42px 0 70px}
+    h1{margin:0 0 10px;font-size:34px;letter-spacing:-.4px}
+    .sub{margin:0 0 20px;color:var(--muted);line-height:1.6;max-width:78ch}
+    .grid{display:grid;grid-template-columns: repeat(3, 1fr);gap:14px;margin-top:16px}
+    .plan{
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.82);
+      border-radius: var(--radius2);
+      box-shadow: 0 14px 40px rgba(2,6,23,.06);
+      padding:18px;
+      transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+      position:relative;
+      cursor:pointer;
+    }
+    .plan:hover{transform: translateY(-2px);border-color: rgba(2,6,23,.14);box-shadow: 0 18px 52px rgba(2,6,23,.09)}
+    .badge{
+      position:absolute;top:14px;right:14px;
+      font-size:12px;font-weight:700;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(79,70,229,.22);
+      background: rgba(79,70,229,.10);
+      color: rgba(79,70,229,.95);
+    }
+    .title{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .name{font-weight:800;letter-spacing:-.2px}
+    .price{font-weight:800;font-size:22px;letter-spacing:-.2px}
+    .per{font-size:13px;color:var(--muted2);font-weight:600}
+    ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px;line-height:1.55}
+    .check{
+      width:18px;height:18px;border-radius:6px;
+      background: rgba(22,163,74,.14);
+      border:1px solid rgba(22,163,74,.28);
+      display:grid;place-items:center;
+      color: rgba(22,163,74,.95);
+      font-weight:900;font-size:12px;
+      flex:0 0 auto;margin-top:1px;
+    }
+    .select{
+      margin-top:16px;
+      display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+    }
+    .radio{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px}
+    input[type="radio"]{accent-color: var(--brand)}
+    .cta{
+      margin-top:18px;
+      border:1px solid rgba(2,6,23,.10);
+      background: linear-gradient(135deg, rgba(79,70,229,.10), rgba(37,99,235,.07));
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: var(--shadow);
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+    .cta p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+    footer{
+      border-top:1px solid rgba(2,6,23,.10);
+      padding:18px 0 34px;
+      color:rgba(11,18,32,.70);
+      font-size:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.95));
+    }
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    details{
+      margin-top:10px;
+      border-radius:14px;
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.82);
+      overflow:hidden;
+      box-shadow: 0 10px 28px rgba(2,6,23,.06);
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding:12px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:700;
+      color:rgba(11,18,32,.86);
+      user-select:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .chev{
+      width:26px;height:26px;border-radius:10px;
+      display:grid;place-items:center;
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.80);
+      color:rgba(11,18,32,.60);
+      transition: transform .18s ease;
+      flex:0 0 auto;
+    }
+    details[open] .chev{transform: rotate(180deg)}
+    .body{
+      padding:0 12px 12px 12px;
+      border-top:1px solid rgba(2,6,23,.08);
+      color:rgba(11,18,32,.68);
+      line-height:1.65;
+      max-width: 100ch;
+    }
+    .body a{text-decoration:underline}
+    .links{display:flex;gap:10px;flex-wrap:wrap}
+    .linkbtn{
+      padding:8px 10px;border-radius:12px;border:1px solid transparent;background:transparent;
+      font:inherit;color:rgba(11,18,32,.72);cursor:pointer;
+    }
+    .linkbtn:hover{background:rgba(2,6,23,.04);border-color:rgba(2,6,23,.10);color:var(--ink)}
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="/" aria-label="Zur Startseite">
+        <div class="logo">M</div>
+        <div>Market Vision Pro</div>
+      </a>
+      <div class="links">
+        <a class="btn" href="/">Zurück</a>
+        <a class="btn btn-primary" href="#" onclick="return goNext()">Weiter</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>Abo wählen</h1>
+    <p class="sub">
+      Wähle das Modell, das zu deinem Trading passt. Du wirst danach zur nächsten Stufe weitergeleitet
+      (Zugang/Onboarding). Keine öffentlichen Preise auf der Startseite.
+    </p>
+
+    <div class="grid" id="plans">
+
+      <label class="plan" for="p1" onclick="pick('p1')">
+        <div class="badge">Starter</div>
+        <div class="title">
+          <div>
+            <div class="name">MVP Starter</div>
+            <div class="per">für fokussierte Trader</div>
+          </div>
+          <div style="text-align:right">
+            <div class="price">9€</div>
+            <div class="per">pro Monat</div>
+          </div>
+        </div>
+        <ul>
+          <li><span class="check">✓</span><span>Technische Indikatoren (RSI, MACD, Bollinger, Stochastic)</span></li>
+          <li><span class="check">✓</span><span>Klarer Dashboard-Fokus ohne Ablenkung</span></li>
+          <li><span class="check">✓</span><span>Basis-Signal-Logik (kombinierte Hinweise)</span></li>
+        </ul>
+        <div class="select">
+          <span class="radio"><input id="p1" name="plan" type="radio" value="starter" checked> Auswählen</span>
+          <span class="per">Ideal zum Start</span>
+        </div>
+      </label>
+
+      <label class="plan" for="p2" onclick="pick('p2')">
+        <div class="badge" style="border-color:rgba(22,163,74,.22);background:rgba(22,163,74,.10);color:rgba(22,163,74,.95)">Beliebt</div>
+        <div class="title">
+          <div>
+            <div class="name">MVP Pro</div>
+            <div class="per">für aktive Entscheider</div>
+          </div>
+          <div style="text-align:right">
+            <div class="price">19€</div>
+            <div class="per">pro Monat</div>
+          </div>
+        </div>
+        <ul>
+          <li><span class="check">✓</span><span>Erweiterte Signal-Kombinationen (weniger Einzel-Noise)</span></li>
+          <li><span class="check">✓</span><span>Markt- & Trendstruktur-Module</span></li>
+          <li><span class="check">✓</span><span>Watchlist-Fokus + schneller Workflow</span></li>
+        </ul>
+        <div class="select">
+          <span class="radio"><input id="p2" name="plan" type="radio" value="pro"> Auswählen</span>
+          <span class="per">Best Value</span>
+        </div>
+      </label>
+
+      <label class="plan" for="p3" onclick="pick('p3')">
+        <div class="badge" style="border-color:rgba(2,6,23,.16);background:rgba(2,6,23,.06);color:rgba(11,18,32,.85)">Max</div>
+        <div class="title">
+          <div>
+            <div class="name">MVP Elite</div>
+            <div class="per">für Options & Backtesting</div>
+          </div>
+          <div style="text-align:right">
+            <div class="price">39€</div>
+            <div class="per">pro Monat</div>
+          </div>
+        </div>
+        <ul>
+          <li><span class="check">✓</span><span>Options-Module (in Ausbau) & Strategie-Framework</span></li>
+          <li><span class="check">✓</span><span>Risiko-/Wahrscheinlichkeitslogik (Roadmap)</span></li>
+          <li><span class="check">✓</span><span>Priorisierte Weiterentwicklung & Zugang zu neuen Features</span></li>
+        </ul>
+        <div class="select">
+          <span class="radio"><input id="p3" name="plan" type="radio" value="elite"> Auswählen</span>
+          <span class="per">Power-User</span>
+        </div>
+      </label>
+
+    </div>
+
+    <div class="cta">
+      <div>
+        <strong>Weiter zur Freischaltung</strong>
+        <p>Du wählst ein Modell und bekommst danach Zugang/Onboarding. Noch ohne öffentliches Checkout, bis alles final ist.</p>
+      </div>
+      <a class="btn btn-primary" href="#" onclick="return goNext()">Weiter</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>© <span id="y"></span> Market Vision Pro</div>
+      <div class="links">
+        <button class="linkbtn" type="button" onclick="openAcc('acc-impressum')">Impressum</button>
+        <button class="linkbtn" type="button" onclick="openAcc('acc-datenschutz')">Datenschutz</button>
+        <button class="linkbtn" type="button" onclick="openAcc('acc-risiko')">Risikohinweis</button>
+      </div>
+    </div>
+
+    <details class="acc" id="acc-impressum">
+      <summary><span>Impressum</span><span class="chev">▾</span></summary>
+      <div class="body">
+        <strong>Angaben gemäß § 5 TMG</strong><br/>
+        Julian Kurzendörfer<br/>
+        Leipzig, Deutschland<br/><br/>
+        <strong>Kontakt</strong><br/>
+        E-Mail: <a href="mailto:support@market-vision-pro.com">support@market-vision-pro.com</a><br/><br/>
+        <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</strong><br/>
+        Julian Kurzendörfer, Leipzig, Deutschland
+      </div>
+    </details>
+
+    <details class="acc" id="acc-datenschutz">
+      <summary><span>Datenschutzerklärung</span><span class="chev">▾</span></summary>
+      <div class="body">
+        Der Schutz deiner persönlichen Daten ist uns wichtig. Personenbezogene Daten werden auf dieser Website nur im technisch notwendigen Umfang verarbeitet.<br/><br/>
+        <strong>1. Verantwortlicher</strong><br/>
+        Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br/>
+        Julian Kurzendörfer, Leipzig, Deutschland<br/>
+        E-Mail: <a href="mailto:support@market-vision-pro.com">support@market-vision-pro.com</a><br/><br/>
+        <strong>2. Hosting</strong><br/>
+        Diese Website wird bei einem externen Hosting-Anbieter (Render.com) betrieben. Beim Aufruf der Website können automatisch Informationen in Server-Logfiles erhoben werden (z. B. IP-Adresse, Browsertyp, Betriebssystem, Referrer-URL, Zeitpunkt des Zugriffs). Diese Daten dienen der technischen Sicherheit, Stabilität und Fehleranalyse.<br/><br/>
+        <strong>3. Cookies & Tracking</strong><br/>
+        Diese Website verwendet derzeit keine Tracking-Cookies, keine Analyse-Tools und kein Profiling.<br/><br/>
+        <strong>4. Kontaktaufnahme</strong><br/>
+        Wenn du per E-Mail Kontakt aufnimmst, werden deine Angaben (z. B. E-Mail-Adresse und Inhalt der Nachricht) ausschließlich zur Bearbeitung der Anfrage verarbeitet. Eine Weitergabe an Dritte erfolgt nicht ohne deine Einwilligung, sofern keine gesetzliche Verpflichtung besteht.<br/><br/>
+        <strong>5. Deine Rechte</strong><br/>
+        Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung deiner personenbezogenen Daten sowie ein Recht auf Datenübertragbarkeit. Zudem besteht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.
+      </div>
+    </details>
+
+    <details class="acc" id="acc-risiko">
+      <summary><span>Risikohinweis & Haftungsausschluss</span><span class="chev">▾</span></summary>
+      <div class="body">
+        Die auf dieser Website bereitgestellten Inhalte dienen ausschließlich Informations- und Bildungszwecken. Sie stellen keine Anlageberatung, keine Finanzanalyse und keine Empfehlung zum Kauf oder Verkauf von Finanzinstrumenten dar.<br/><br/>
+        Trading mit Aktien, Derivaten und Optionen ist mit erheblichen Risiken verbunden und kann zum vollständigen Verlust des eingesetzten Kapitals führen. Entscheidungen, die auf Basis der dargestellten Informationen getroffen werden, erfolgen ausschließlich auf eigenes Risiko.<br/><br/>
+        Market Vision Pro übernimmt keine Haftung für finanzielle Verluste, entgangene Gewinne oder sonstige Schäden, die direkt oder indirekt aus der Nutzung der bereitgestellten Inhalte entstehen.
+      </div>
+    </details>
+
+    <div class="body" style="margin-top:10px">
+      <strong>Kein Financial Advice:</strong> Inhalte dienen ausschließlich Informationszwecken und stellen keine Anlageberatung, Empfehlung oder Aufforderung zum Kauf/Verkauf dar. Trading ist risikobehaftet.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  function pick(id){
+    const el = document.getElementById(id);
+    if(el) el.checked = true;
+  }
+  function selectedPlan(){
+    const r = document.querySelector('input[name="plan"]:checked');
+    return r ? r.value : 'starter';
+  }
+  function goNext(){
+    const plan = selectedPlan();
+    const subject = encodeURIComponent("MVP Abo auswählen: " + plan);
+    const body = encodeURIComponent("Hi, ich möchte das Abo '" + plan + "' wählen. Bitte schaltet meinen Zugang frei / sendet mir den nächsten Schritt.\n\nEmail: ");
+    window.location.href = "mailto:support@market-vision-pro.com?subject=" + subject + "&body=" + body;
+    return false;
+  }
+  function openAcc(id){
+    const all = ['acc-impressum','acc-datenschutz','acc-risiko'];
+    for(const x of all){
+      const el = document.getElementById(x);
+      if(el && x !== id) el.open = false;
+    }
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.open = true;
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
