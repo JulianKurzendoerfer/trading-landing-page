@@ -68,11 +68,11 @@
       color:#fff;
       box-shadow: 0 18px 45px rgba(79,70,229,.20);
     }
-    .btn-primary:hover{box-shadow: 0 22px 55px rgba(79,70,229,.22)}
     main{padding:42px 0 70px}
     h1{margin:0 0 10px;font-size:34px;letter-spacing:-.4px}
-    .sub{margin:0 0 20px;color:var(--muted);line-height:1.6;max-width:78ch}
-    .grid{display:grid;grid-template-columns: repeat(3, 1fr);gap:14px;margin-top:16px}
+    .sub{margin:0 0 10px;color:var(--muted);line-height:1.6;max-width:82ch}
+    .note{margin:0 0 18px;color:var(--muted2);font-size:13px;line-height:1.6;max-width:90ch}
+    .grid{display:grid;grid-template-columns: repeat(2, 1fr);gap:14px;margin-top:16px}
     .plan{
       border:1px solid rgba(2,6,23,.10);
       background: rgba(255,255,255,.82);
@@ -82,20 +82,22 @@
       transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
       position:relative;
       cursor:pointer;
+      display:block;
     }
     .plan:hover{transform: translateY(-2px);border-color: rgba(2,6,23,.14);box-shadow: 0 18px 52px rgba(2,6,23,.09)}
     .badge{
       position:absolute;top:14px;right:14px;
-      font-size:12px;font-weight:700;
+      font-size:12px;font-weight:800;
       padding:6px 10px;border-radius:999px;
       border:1px solid rgba(79,70,229,.22);
       background: rgba(79,70,229,.10);
       color: rgba(79,70,229,.95);
     }
-    .title{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .title{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
     .name{font-weight:800;letter-spacing:-.2px}
-    .price{font-weight:800;font-size:22px;letter-spacing:-.2px}
-    .per{font-size:13px;color:var(--muted2);font-weight:600}
+    .per{font-size:13px;color:var(--muted2);font-weight:600;margin-top:2px}
+    .price{font-weight:900;font-size:22px;letter-spacing:-.2px}
+    .price small{font-size:13px;color:var(--muted2);font-weight:700}
     ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px}
     li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px;line-height:1.55}
     .check{
@@ -110,10 +112,24 @@
     .select{
       margin-top:16px;
       display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+      border-top:1px solid rgba(2,6,23,.08);
+      padding-top:12px;
     }
     .radio{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px}
     input[type="radio"]{accent-color: var(--brand)}
-    .cta{
+    .addon{
+      display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+      margin-top:10px;
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.78);
+      border-radius: 16px;
+      padding:12px;
+      box-shadow: 0 10px 28px rgba(2,6,23,.05);
+    }
+    .addon label{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px;line-height:1.5}
+    .addon strong{color:var(--ink)}
+    .addon small{color:var(--muted2)}
+    .summary{
       margin-top:18px;
       border:1px solid rgba(2,6,23,.10);
       background: linear-gradient(135deg, rgba(79,70,229,.10), rgba(37,99,235,.07));
@@ -122,7 +138,16 @@
       box-shadow: var(--shadow);
       display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
     }
-    .cta p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+    .summary p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
+    .sumline{font-weight:900;font-size:16px;letter-spacing:-.1px}
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.78);
+      color: rgba(11,18,32,.78);
+      font-size:12px;font-weight:700;
+    }
     footer{
       border-top:1px solid rgba(2,6,23,.10);
       padding:18px 0 34px;
@@ -132,42 +157,23 @@
     }
     .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
     details{
-      margin-top:10px;
-      border-radius:14px;
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.82);
-      overflow:hidden;
-      box-shadow: 0 10px 28px rgba(2,6,23,.06);
+      margin-top:10px;border-radius:14px;border:1px solid rgba(2,6,23,.10);
+      background: rgba(255,255,255,.82);overflow:hidden;box-shadow: 0 10px 28px rgba(2,6,23,.06);
     }
     summary{
-      list-style:none;
-      cursor:pointer;
-      padding:12px 12px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      font-weight:700;
-      color:rgba(11,18,32,.86);
-      user-select:none;
+      list-style:none;cursor:pointer;padding:12px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+      font-weight:700;color:rgba(11,18,32,.86);user-select:none;
     }
     summary::-webkit-details-marker{display:none}
     .chev{
-      width:26px;height:26px;border-radius:10px;
-      display:grid;place-items:center;
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.80);
-      color:rgba(11,18,32,.60);
-      transition: transform .18s ease;
-      flex:0 0 auto;
+      width:26px;height:26px;border-radius:10px;display:grid;place-items:center;
+      border:1px solid rgba(2,6,23,.10);background: rgba(255,255,255,.80);color:rgba(11,18,32,.60);
+      transition: transform .18s ease;flex:0 0 auto;
     }
     details[open] .chev{transform: rotate(180deg)}
     .body{
-      padding:0 12px 12px 12px;
-      border-top:1px solid rgba(2,6,23,.08);
-      color:rgba(11,18,32,.68);
-      line-height:1.65;
-      max-width: 100ch;
+      padding:0 12px 12px 12px;border-top:1px solid rgba(2,6,23,.08);
+      color:rgba(11,18,32,.68);line-height:1.65;max-width: 100ch;
     }
     .body a{text-decoration:underline}
     .links{display:flex;gap:10px;flex-wrap:wrap}
@@ -202,87 +208,129 @@
   <div class="container">
     <h1>Abo wählen</h1>
     <p class="sub">
-      Wähle das Modell, das zu deinem Trading passt. Du wirst danach zur nächsten Stufe weitergeleitet
-      (Zugang/Onboarding). Keine öffentlichen Preise auf der Startseite.
+      Wähle das Modell, das zu deinem Trading passt. Auf der Startseite gibt es keine Preise –
+      hier entscheidest du dich für den passenden Umfang.
+    </p>
+    <p class="note">
+      Fundamental-Analyse ist bei den Monatsmodellen optional und wird als Add-on hinzugebucht.
+      (Du kannst jederzeit ohne Fundamentals starten und später upgraden.)
     </p>
 
     <div class="grid" id="plans">
 
-      <label class="plan" for="p1" onclick="pick('p1')">
-        <div class="badge">Starter</div>
+      <label class="plan" for="p0" onclick="pick('p0')">
+        <div class="badge">Probe</div>
         <div class="title">
           <div>
-            <div class="name">MVP Starter</div>
-            <div class="per">für fokussierte Trader</div>
+            <div class="name">Probe-Abo (1 Woche)</div>
+            <div class="per">für 1 Aktie</div>
           </div>
           <div style="text-align:right">
-            <div class="price">9€</div>
-            <div class="per">pro Monat</div>
+            <div class="price">20€ <small>einmalig</small></div>
+            <div class="per">7 Tage Zugriff</div>
           </div>
         </div>
         <ul>
-          <li><span class="check">✓</span><span>Technische Indikatoren (RSI, MACD, Bollinger, Stochastic)</span></li>
-          <li><span class="check">✓</span><span>Klarer Dashboard-Fokus ohne Ablenkung</span></li>
-          <li><span class="check">✓</span><span>Basis-Signal-Logik (kombinierte Hinweise)</span></li>
+          <li><span class="check">✓</span><span>Analyse für <strong>1 Aktie</strong> (ein Setup)</span></li>
+          <li><span class="check">✓</span><span>Deine Indikatoren</span></li>
+          <li><span class="check">✓</span><span>Elliott-Wave-Analyse</span></li>
+          <li><span class="check">✓</span><span>Fundamentalanalyse inklusive</span></li>
         </ul>
         <div class="select">
-          <span class="radio"><input id="p1" name="plan" type="radio" value="starter" checked> Auswählen</span>
-          <span class="per">Ideal zum Start</span>
+          <span class="radio"><input id="p0" name="plan" type="radio" value="trial" checked> Auswählen</span>
+          <span class="pill">Gesamt: 20€</span>
+        </div>
+      </label>
+
+      <label class="plan" for="p1" onclick="pick('p1')">
+        <div class="badge" style="border-color:rgba(22,163,74,.22);background:rgba(22,163,74,.10);color:rgba(22,163,74,.95)">10 Aktien</div>
+        <div class="title">
+          <div>
+            <div class="name">MVP 10</div>
+            <div class="per">bis zu 10 Aktien / Monat</div>
+          </div>
+          <div style="text-align:right">
+            <div class="price">100€ <small>/ Monat</small></div>
+            <div class="per">Fundamental optional</div>
+          </div>
+        </div>
+        <ul>
+          <li><span class="check">✓</span><span>Bis zu <strong>10 Aktien</strong> analysieren lassen</span></li>
+          <li><span class="check">✓</span><span>Deine Indikatoren</span></li>
+          <li><span class="check">✓</span><span>Elliott-Wave-Analyse</span></li>
+          <li><span class="check">✓</span><span>Fundamentalanalyse als Add-on</span></li>
+        </ul>
+        <div class="select">
+          <span class="radio"><input id="p1" name="plan" type="radio" value="mvp10"> Auswählen</span>
+          <span class="pill" id="pill-p1">Basis: 100€</span>
         </div>
       </label>
 
       <label class="plan" for="p2" onclick="pick('p2')">
-        <div class="badge" style="border-color:rgba(22,163,74,.22);background:rgba(22,163,74,.10);color:rgba(22,163,74,.95)">Beliebt</div>
+        <div class="badge">25 Aktien</div>
         <div class="title">
           <div>
-            <div class="name">MVP Pro</div>
-            <div class="per">für aktive Entscheider</div>
+            <div class="name">MVP 25</div>
+            <div class="per">bis zu 25 Aktien / Monat</div>
           </div>
           <div style="text-align:right">
-            <div class="price">19€</div>
-            <div class="per">pro Monat</div>
+            <div class="price">250€ <small>/ Monat</small></div>
+            <div class="per">Fundamental optional</div>
           </div>
         </div>
         <ul>
-          <li><span class="check">✓</span><span>Erweiterte Signal-Kombinationen (weniger Einzel-Noise)</span></li>
-          <li><span class="check">✓</span><span>Markt- & Trendstruktur-Module</span></li>
-          <li><span class="check">✓</span><span>Watchlist-Fokus + schneller Workflow</span></li>
+          <li><span class="check">✓</span><span>Bis zu <strong>25 Aktien</strong> analysieren lassen</span></li>
+          <li><span class="check">✓</span><span>Deine Indikatoren</span></li>
+          <li><span class="check">✓</span><span>Elliott-Wave-Analyse</span></li>
+          <li><span class="check">✓</span><span>Fundamentalanalyse als Add-on</span></li>
         </ul>
         <div class="select">
-          <span class="radio"><input id="p2" name="plan" type="radio" value="pro"> Auswählen</span>
-          <span class="per">Best Value</span>
+          <span class="radio"><input id="p2" name="plan" type="radio" value="mvp25"> Auswählen</span>
+          <span class="pill" id="pill-p2">Basis: 250€</span>
         </div>
       </label>
 
       <label class="plan" for="p3" onclick="pick('p3')">
-        <div class="badge" style="border-color:rgba(2,6,23,.16);background:rgba(2,6,23,.06);color:rgba(11,18,32,.85)">Max</div>
+        <div class="badge">100 Aktien</div>
         <div class="title">
           <div>
-            <div class="name">MVP Elite</div>
-            <div class="per">für Options & Backtesting</div>
+            <div class="name">MVP 100</div>
+            <div class="per">bis zu 100 Aktien / Monat</div>
           </div>
           <div style="text-align:right">
-            <div class="price">39€</div>
-            <div class="per">pro Monat</div>
+            <div class="price">350€ <small>/ Monat</small></div>
+            <div class="per">Fundamental optional</div>
           </div>
         </div>
         <ul>
-          <li><span class="check">✓</span><span>Options-Module (in Ausbau) & Strategie-Framework</span></li>
-          <li><span class="check">✓</span><span>Risiko-/Wahrscheinlichkeitslogik (Roadmap)</span></li>
-          <li><span class="check">✓</span><span>Priorisierte Weiterentwicklung & Zugang zu neuen Features</span></li>
+          <li><span class="check">✓</span><span>Bis zu <strong>100 Aktien</strong> analysieren lassen</span></li>
+          <li><span class="check">✓</span><span>Deine Indikatoren</span></li>
+          <li><span class="check">✓</span><span>Elliott-Wave-Analyse</span></li>
+          <li><span class="check">✓</span><span>Fundamentalanalyse als Add-on</span></li>
         </ul>
         <div class="select">
-          <span class="radio"><input id="p3" name="plan" type="radio" value="elite"> Auswählen</span>
-          <span class="per">Power-User</span>
+          <span class="radio"><input id="p3" name="plan" type="radio" value="mvp100"> Auswählen</span>
+          <span class="pill" id="pill-p3">Basis: 350€</span>
         </div>
       </label>
 
     </div>
 
-    <div class="cta">
+    <div class="addon" id="addonBox">
+      <label>
+        <input type="checkbox" id="fundamental" onchange="recalc()">
+        <div>
+          <strong>Fundamentalanalyse hinzufügen</strong><br>
+          <small id="fundPriceText">Add-on: abhängig vom Modell</small>
+        </div>
+      </label>
+      <div class="pill" id="fundPill">+0€</div>
+    </div>
+
+    <div class="summary">
       <div>
-        <strong>Weiter zur Freischaltung</strong>
-        <p>Du wählst ein Modell und bekommst danach Zugang/Onboarding. Noch ohne öffentliches Checkout, bis alles final ist.</p>
+        <div class="sumline" id="sumLine">Gesamt: 20€ (Probe-Abo, 1 Woche)</div>
+        <p id="sumDesc">Weiter führt dich zur Freischaltung / zum nächsten Schritt.</p>
       </div>
       <a class="btn btn-primary" href="#" onclick="return goNext()">Weiter</a>
     </div>
@@ -349,21 +397,88 @@
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  const pricing = {
+    trial: {base: 20, fundamentalIncluded: true, add: 0, label: "Probe-Abo, 1 Woche (1 Aktie)"},
+    mvp10: {base: 100, fundamentalIncluded: false, add: 15, label: "MVP 10 (bis 10 Aktien / Monat)"},
+    mvp25: {base: 250, fundamentalIncluded: false, add: 30, label: "MVP 25 (bis 25 Aktien / Monat)"},
+    mvp100:{base: 350, fundamentalIncluded: false, add: 50, label: "MVP 100 (bis 100 Aktien / Monat)"}
+  };
+
   function pick(id){
     const el = document.getElementById(id);
     if(el) el.checked = true;
+    recalc();
   }
+
   function selectedPlan(){
     const r = document.querySelector('input[name="plan"]:checked');
-    return r ? r.value : 'starter';
+    return r ? r.value : 'trial';
   }
+
+  function recalc(){
+    const plan = selectedPlan();
+    const fund = document.getElementById('fundamental');
+    const addonBox = document.getElementById('addonBox');
+    const fundPriceText = document.getElementById('fundPriceText');
+    const fundPill = document.getElementById('fundPill');
+
+    const cfg = pricing[plan];
+
+    if(cfg.fundamentalIncluded){
+      fund.checked = true;
+      fund.disabled = true;
+      addonBox.style.opacity = "0.65";
+      fundPriceText.textContent = "Fundamentalanalyse: inklusive";
+      fundPill.textContent = "+0€";
+    } else {
+      fund.disabled = false;
+      addonBox.style.opacity = "1";
+      fundPriceText.textContent = "Add-on: +" + cfg.add + "€ / Monat";
+      fundPill.textContent = "+" + (fund.checked ? cfg.add : 0) + "€";
+    }
+
+    const total = cfg.base + ((cfg.fundamentalIncluded || !fund.checked) ? 0 : cfg.add);
+    const suffix = cfg.label.includes("Probe") ? "einmalig" : "pro Monat";
+    document.getElementById('sumLine').textContent = "Gesamt: " + total + "€ (" + suffix + ") · " + cfg.label;
+    document.getElementById('sumDesc').textContent = "Weiter führt dich zur Freischaltung / zum nächsten Schritt.";
+    const pillMap = {
+      mvp10: "pill-p1",
+      mvp25: "pill-p2",
+      mvp100:"pill-p3"
+    };
+    for(const k of Object.values(pillMap)){
+      const el = document.getElementById(k);
+      if(el) el.textContent = "Basis: " + (k==="pill-p1"?100:k==="pill-p2"?250:350) + "€";
+    }
+    if(plan==="trial"){
+      document.getElementById('fundPill').textContent = "+0€";
+    }
+  }
+
   function goNext(){
     const plan = selectedPlan();
-    const subject = encodeURIComponent("MVP Abo auswählen: " + plan);
-    const body = encodeURIComponent("Hi, ich möchte das Abo '" + plan + "' wählen. Bitte schaltet meinen Zugang frei / sendet mir den nächsten Schritt.\n\nEmail: ");
+    const cfg = pricing[plan];
+    const fund = document.getElementById('fundamental');
+    const wantFund = cfg.fundamentalIncluded ? TrueFalse(true) : TrueFalse(fund.checked);
+    const addon = (cfg.fundamentalIncluded || !fund.checked) ? 0 : cfg.add;
+    const total = cfg.base + addon;
+
+    const subject = encodeURIComponent("MVP Abo wählen: " + plan + (wantFund ? " + Fundamentals" : ""));
+    const body = encodeURIComponent(
+      "Hi,\n\nich möchte folgendes Abo wählen:\n" +
+      "- Modell: " + cfg.label + "\n" +
+      "- Preis: " + cfg.base + "€" + (cfg.label.includes("Probe") ? " einmalig" : " / Monat") + "\n" +
+      "- Fundamentals: " + (cfg.fundamentalIncluded ? "inklusive" : (fund.checked ? "ja (+" + cfg.add + "€ / Monat)" : "nein")) + "\n" +
+      "- Gesamt: " + total + "€" + (cfg.label.includes("Probe") ? " einmalig" : " / Monat") + "\n\n" +
+      "Bitte sendet mir den nächsten Schritt (Zugang/Onboarding).\n\nEmail: "
+    );
     window.location.href = "mailto:support@market-vision-pro.com?subject=" + subject + "&body=" + body;
     return false;
   }
+
+  function TrueFalse(v){ return v ? true : false; }
+
   function openAcc(id){
     const all = ['acc-impressum','acc-datenschutz','acc-risiko'];
     for(const x of all){
@@ -375,6 +490,8 @@
     el.open = true;
     el.scrollIntoView({behavior:'smooth', block:'start'});
   }
+
+  recalc();
 </script>
 </body>
 </html>
