@@ -1,497 +1,157 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Market Vision Pro – Abo wählen</title>
-  <meta name="description" content="Wähle dein MVP-Abo und starte die Analyse." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg1:#eef2ff;
-      --bg2:#f6f7fb;
-      --ink:#0b1220;
-      --muted:#4b5569;
-      --muted2:#6b7280;
-      --line:rgba(2,6,23,.10);
-      --card:#ffffff;
-      --shadow:0 18px 60px rgba(2,6,23,.10);
-      --brand:#4f46e5;
-      --brand2:#2563eb;
-      --green:#16a34a;
-      --radius:16px;
-      --radius2:22px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      color:var(--ink);
-      background:
-        radial-gradient(1200px 700px at 12% 10%, rgba(79,70,229,.16), transparent 60%),
-        radial-gradient(900px 600px at 88% 18%, rgba(37,99,235,.12), transparent 58%),
-        radial-gradient(700px 520px at 50% 98%, rgba(79,70,229,.08), transparent 62%),
-        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 45%, #ffffff 100%);
-    }
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1040px;margin:0 auto;padding:0 20px}
-    header{
-      position:sticky;top:0;z-index:30;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(246,247,251,.92), rgba(246,247,251,.72));
-      border-bottom:1px solid var(--line);
-    }
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .logo{
-      width:36px;height:36px;border-radius:12px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 12px 30px rgba(79,70,229,.18);
-      display:grid;place-items:center;font-weight:800;color:#fff;
-    }
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:11px 14px;border-radius:14px;font-weight:600;font-size:14px;
-      border:1px solid rgba(2,6,23,.12);
-      background: rgba(255,255,255,.75);
-      color:var(--ink);
-      transition: transform .15s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
-      cursor:pointer;
-      user-select:none;
-    }
-    .btn:hover{transform: translateY(-1px);background: rgba(255,255,255,.95);border-color: rgba(2,6,23,.16)}
-    .btn-primary{
-      border:1px solid rgba(79,70,229,.25);
-      background: linear-gradient(135deg, rgba(79,70,229,.96), rgba(37,99,235,.92));
-      color:#fff;
-      box-shadow: 0 18px 45px rgba(79,70,229,.20);
-    }
-    main{padding:42px 0 70px}
-    h1{margin:0 0 10px;font-size:34px;letter-spacing:-.4px}
-    .sub{margin:0 0 10px;color:var(--muted);line-height:1.6;max-width:82ch}
-    .note{margin:0 0 18px;color:var(--muted2);font-size:13px;line-height:1.6;max-width:90ch}
-    .grid{display:grid;grid-template-columns: repeat(2, 1fr);gap:14px;margin-top:16px}
-    .plan{
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.82);
-      border-radius: var(--radius2);
-      box-shadow: 0 14px 40px rgba(2,6,23,.06);
-      padding:18px;
-      transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
-      position:relative;
-      cursor:pointer;
-      display:block;
-    }
-    .plan:hover{transform: translateY(-2px);border-color: rgba(2,6,23,.14);box-shadow: 0 18px 52px rgba(2,6,23,.09)}
-    .badge{
-      position:absolute;top:14px;right:14px;
-      font-size:12px;font-weight:800;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(79,70,229,.22);
-      background: rgba(79,70,229,.10);
-      color: rgba(79,70,229,.95);
-    }
-    .title{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-    .name{font-weight:800;letter-spacing:-.2px}
-    .per{font-size:13px;color:var(--muted2);font-weight:600;margin-top:2px}
-    .price{font-weight:900;font-size:22px;letter-spacing:-.2px}
-    .price small{font-size:13px;color:var(--muted2);font-weight:700}
-    ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px}
-    li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px;line-height:1.55}
-    .check{
-      width:18px;height:18px;border-radius:6px;
-      background: rgba(22,163,74,.14);
-      border:1px solid rgba(22,163,74,.28);
-      display:grid;place-items:center;
-      color: rgba(22,163,74,.95);
-      font-weight:900;font-size:12px;
-      flex:0 0 auto;margin-top:1px;
-    }
-    .select{
-      margin-top:16px;
-      display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
-      border-top:1px solid rgba(2,6,23,.08);
-      padding-top:12px;
-    }
-    .radio{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:13px}
-    input[type="radio"]{accent-color: var(--brand)}
-    .addon{
-      display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
-      margin-top:10px;
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.78);
-      border-radius: 16px;
-      padding:12px;
-      box-shadow: 0 10px 28px rgba(2,6,23,.05);
-    }
-    .addon label{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px;line-height:1.5}
-    .addon strong{color:var(--ink)}
-    .addon small{color:var(--muted2)}
-    .summary{
-      margin-top:18px;
-      border:1px solid rgba(2,6,23,.10);
-      background: linear-gradient(135deg, rgba(79,70,229,.10), rgba(37,99,235,.07));
-      border-radius: var(--radius2);
-      padding:18px;
-      box-shadow: var(--shadow);
-      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-    }
-    .summary p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
-    .sumline{font-weight:900;font-size:16px;letter-spacing:-.1px}
-    .pill{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.78);
-      color: rgba(11,18,32,.78);
-      font-size:12px;font-weight:700;
-    }
-    footer{
-      border-top:1px solid rgba(2,6,23,.10);
-      padding:18px 0 34px;
-      color:rgba(11,18,32,.70);
-      font-size:12px;
-      background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.95));
-    }
-    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    details{
-      margin-top:10px;border-radius:14px;border:1px solid rgba(2,6,23,.10);
-      background: rgba(255,255,255,.82);overflow:hidden;box-shadow: 0 10px 28px rgba(2,6,23,.06);
-    }
-    summary{
-      list-style:none;cursor:pointer;padding:12px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;
-      font-weight:700;color:rgba(11,18,32,.86);user-select:none;
-    }
-    summary::-webkit-details-marker{display:none}
-    .chev{
-      width:26px;height:26px;border-radius:10px;display:grid;place-items:center;
-      border:1px solid rgba(2,6,23,.10);background: rgba(255,255,255,.80);color:rgba(11,18,32,.60);
-      transition: transform .18s ease;flex:0 0 auto;
-    }
-    details[open] .chev{transform: rotate(180deg)}
-    .body{
-      padding:0 12px 12px 12px;border-top:1px solid rgba(2,6,23,.08);
-      color:rgba(11,18,32,.68);line-height:1.65;max-width: 100ch;
-    }
-    .body a{text-decoration:underline}
-    .links{display:flex;gap:10px;flex-wrap:wrap}
-    .linkbtn{
-      padding:8px 10px;border-radius:12px;border:1px solid transparent;background:transparent;
-      font:inherit;color:rgba(11,18,32,.72);cursor:pointer;
-    }
-    .linkbtn:hover{background:rgba(2,6,23,.04);border-color:rgba(2,6,23,.10);color:var(--ink)}
-    @media (max-width: 980px){
-      .grid{grid-template-columns:1fr}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Abo wählen – Market Vision Pro</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:Inter;
+  background:#f8f7f2;
+  color:#2f342d;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+h1{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.sub{
+  color:#6b7468;
+  margin-bottom:40px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  padding:24px;
+  border-radius:20px;
+  border:1px solid rgba(0,0,0,0.05);
+  box-shadow:0 10px 30px rgba(0,0,0,0.04);
+  transition:0.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+/* HIGHLIGHT */
+.highlight{
+  border:2px solid #9bb59f;
+  transform:scale(1.02);
+}
+
+/* TITLE */
+.title{
+  font-weight:700;
+  font-size:18px;
+}
+
+/* PRICE */
+.price{
+  font-size:28px;
+  font-weight:800;
+  margin:10px 0;
+}
+
+/* FEATURES */
+ul{
+  padding-left:18px;
+  color:#6b7468;
+}
+
+li{
+  margin-bottom:8px;
+}
+
+/* BUTTON */
+.btn{
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  padding:12px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#9bb59f,#c8b29a);
+  color:white;
+  font-weight:700;
+}
+
+</style>
 </head>
+
 <body>
 
-<header>
-  <div class="container">
-    <div class="nav">
-      <a class="brand" href="/" aria-label="Zur Startseite">
-        <div class="logo">M</div>
-        <div>Market Vision Pro</div>
-      </a>
-      <div class="links">
-        <a class="btn" href="/">Zurück</a>
-        <a class="btn btn-primary" href="#" onclick="return goNext()">Weiter</a>
-      </div>
-    </div>
-  </div>
-</header>
+<div class="container">
 
-<main>
-  <div class="container">
-    <h1>Abo wählen</h1>
-    <p class="sub">
-      Wähle das Modell, das zu deinem Trading passt. Auf der Startseite gibt es keine Preise –
-      hier entscheidest du dich für den passenden Umfang.
-    </p>
-    <p class="note">
-      Fundamental-Analyse ist bei den Monatsmodellen optional und wird als Add-on hinzugebucht.
-      (Du kannst jederzeit ohne Fundamentals starten und später upgraden.)
-    </p>
+<h1>Abo wählen</h1>
+<div class="sub">Wähle das Modell, das zu deinem Trading passt</div>
 
-    <div class="grid" id="plans">
+<div class="grid">
 
-      <label class="plan" for="p0" onclick="pick('p0')">
-        <div class="badge">Probe</div>
-        <div class="title">
-          <div>
-            <div class="name">Probe-Abo (1 Woche)</div>
-            <div class="per">für 1 Aktie</div>
-          </div>
-          <div style="text-align:right">
-            <div class="price">20€ <small>einmalig</small></div>
-            <div class="per">7 Tage Zugriff</div>
-          </div>
-        </div>
-        <ul>
-          <li><span class="check">✓</span><span>Analyse für <strong>1 Aktie</strong> (ein Setup)</span></li>
-          <li><span class="check">✓</span><span>Deine Indikatoren</span></li>
-          <li><span class="check">✓</span><span>Elliott-Wave-Analyse</span></li>
-          <li><span class="check">✓</span><span>Fundamentalanalyse inklusive</span></li>
-        </ul>
-        <div class="select">
-          <span class="radio"><input id="p0" name="plan" type="radio" value="trial" checked> Auswählen</span>
-          <span class="pill">Gesamt: 20€</span>
-        </div>
-      </label>
+<div class="card">
+<div class="title">Probe-Abo</div>
+<div class="price">20€</div>
+<ul>
+<li>1 Aktie</li>
+<li>Alle Indikatoren</li>
+<li>Elliott Wave</li>
+</ul>
+<div class="btn">Auswählen</div>
+</div>
 
-      <label class="plan" for="p1" onclick="pick('p1')">
-        <div class="badge" style="border-color:rgba(22,163,74,.22);background:rgba(22,163,74,.10);color:rgba(22,163,74,.95)">10 Aktien</div>
-        <div class="title">
-          <div>
-            <div class="name">MVP 10</div>
-            <div class="per">bis zu 10 Aktien / Monat</div>
-          </div>
-          <div style="text-align:right">
-            <div class="price">100€ <small>/ Monat</small></div>
-            <div class="per">Fundamental optional</div>
-          </div>
-        </div>
-        <ul>
-          <li><span class="check">✓</span><span>Bis zu <strong>10 Aktien</strong> analysieren lassen</span></li>
-          <li><span class="check">✓</span><span>Deine Indikatoren</span></li>
-          <li><span class="check">✓</span><span>Elliott-Wave-Analyse</span></li>
-          <li><span class="check">✓</span><span>Fundamentalanalyse als Add-on</span></li>
-        </ul>
-        <div class="select">
-          <span class="radio"><input id="p1" name="plan" type="radio" value="mvp10"> Auswählen</span>
-          <span class="pill" id="pill-p1">Basis: 100€</span>
-        </div>
-      </label>
+<div class="card">
+<div class="title">MVP 10</div>
+<div class="price">100€/Monat</div>
+<ul>
+<li>10 Aktien</li>
+<li>Alle Indikatoren</li>
+<li>Elliott Wave</li>
+</ul>
+<div class="btn">Auswählen</div>
+</div>
 
-      <label class="plan" for="p2" onclick="pick('p2')">
-        <div class="badge">25 Aktien</div>
-        <div class="title">
-          <div>
-            <div class="name">MVP 25</div>
-            <div class="per">bis zu 25 Aktien / Monat</div>
-          </div>
-          <div style="text-align:right">
-            <div class="price">250€ <small>/ Monat</small></div>
-            <div class="per">Fundamental optional</div>
-          </div>
-        </div>
-        <ul>
-          <li><span class="check">✓</span><span>Bis zu <strong>25 Aktien</strong> analysieren lassen</span></li>
-          <li><span class="check">✓</span><span>Deine Indikatoren</span></li>
-          <li><span class="check">✓</span><span>Elliott-Wave-Analyse</span></li>
-          <li><span class="check">✓</span><span>Fundamentalanalyse als Add-on</span></li>
-        </ul>
-        <div class="select">
-          <span class="radio"><input id="p2" name="plan" type="radio" value="mvp25"> Auswählen</span>
-          <span class="pill" id="pill-p2">Basis: 250€</span>
-        </div>
-      </label>
+<div class="card highlight">
+<div class="title">MVP 25 (Beliebt)</div>
+<div class="price">250€/Monat</div>
+<ul>
+<li>25 Aktien</li>
+<li>Alle Indikatoren</li>
+<li>Elliott Wave</li>
+</ul>
+<div class="btn">Auswählen</div>
+</div>
 
-      <label class="plan" for="p3" onclick="pick('p3')">
-        <div class="badge">100 Aktien</div>
-        <div class="title">
-          <div>
-            <div class="name">MVP 100</div>
-            <div class="per">bis zu 100 Aktien / Monat</div>
-          </div>
-          <div style="text-align:right">
-            <div class="price">350€ <small>/ Monat</small></div>
-            <div class="per">Fundamental optional</div>
-          </div>
-        </div>
-        <ul>
-          <li><span class="check">✓</span><span>Bis zu <strong>100 Aktien</strong> analysieren lassen</span></li>
-          <li><span class="check">✓</span><span>Deine Indikatoren</span></li>
-          <li><span class="check">✓</span><span>Elliott-Wave-Analyse</span></li>
-          <li><span class="check">✓</span><span>Fundamentalanalyse als Add-on</span></li>
-        </ul>
-        <div class="select">
-          <span class="radio"><input id="p3" name="plan" type="radio" value="mvp100"> Auswählen</span>
-          <span class="pill" id="pill-p3">Basis: 350€</span>
-        </div>
-      </label>
+<div class="card">
+<div class="title">MVP 100</div>
+<div class="price">350€/Monat</div>
+<ul>
+<li>100 Aktien</li>
+<li>Alle Indikatoren</li>
+<li>Elliott Wave</li>
+</ul>
+<div class="btn">Auswählen</div>
+</div>
 
-    </div>
+</div>
 
-    <div class="addon" id="addonBox">
-      <label>
-        <input type="checkbox" id="fundamental" onchange="recalc()">
-        <div>
-          <strong>Fundamentalanalyse hinzufügen</strong><br>
-          <small id="fundPriceText">Add-on: abhängig vom Modell</small>
-        </div>
-      </label>
-      <div class="pill" id="fundPill">+0€</div>
-    </div>
+</div>
 
-    <div class="summary">
-      <div>
-        <div class="sumline" id="sumLine">Gesamt: 20€ (Probe-Abo, 1 Woche)</div>
-        <p id="sumDesc">Weiter führt dich zur Freischaltung / zum nächsten Schritt.</p>
-      </div>
-      <a class="btn btn-primary" href="#" onclick="return goNext()">Weiter</a>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="container">
-    <div class="foot">
-      <div>© <span id="y"></span> Market Vision Pro</div>
-      <div class="links">
-        <button class="linkbtn" type="button" onclick="openAcc('acc-impressum')">Impressum</button>
-        <button class="linkbtn" type="button" onclick="openAcc('acc-datenschutz')">Datenschutz</button>
-        <button class="linkbtn" type="button" onclick="openAcc('acc-risiko')">Risikohinweis</button>
-      </div>
-    </div>
-
-    <details class="acc" id="acc-impressum">
-      <summary><span>Impressum</span><span class="chev">▾</span></summary>
-      <div class="body">
-        <strong>Angaben gemäß § 5 TMG</strong><br/>
-        Julian Kurzendörfer<br/>
-        Leipzig, Deutschland<br/><br/>
-        <strong>Kontakt</strong><br/>
-        E-Mail: <a href="mailto:support@market-vision-pro.com">support@market-vision-pro.com</a><br/><br/>
-        <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</strong><br/>
-        Julian Kurzendörfer, Leipzig, Deutschland
-      </div>
-    </details>
-
-    <details class="acc" id="acc-datenschutz">
-      <summary><span>Datenschutzerklärung</span><span class="chev">▾</span></summary>
-      <div class="body">
-        Der Schutz deiner persönlichen Daten ist uns wichtig. Personenbezogene Daten werden auf dieser Website nur im technisch notwendigen Umfang verarbeitet.<br/><br/>
-        <strong>1. Verantwortlicher</strong><br/>
-        Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br/>
-        Julian Kurzendörfer, Leipzig, Deutschland<br/>
-        E-Mail: <a href="mailto:support@market-vision-pro.com">support@market-vision-pro.com</a><br/><br/>
-        <strong>2. Hosting</strong><br/>
-        Diese Website wird bei einem externen Hosting-Anbieter (Render.com) betrieben. Beim Aufruf der Website können automatisch Informationen in Server-Logfiles erhoben werden (z. B. IP-Adresse, Browsertyp, Betriebssystem, Referrer-URL, Zeitpunkt des Zugriffs). Diese Daten dienen der technischen Sicherheit, Stabilität und Fehleranalyse.<br/><br/>
-        <strong>3. Cookies & Tracking</strong><br/>
-        Diese Website verwendet derzeit keine Tracking-Cookies, keine Analyse-Tools und kein Profiling.<br/><br/>
-        <strong>4. Kontaktaufnahme</strong><br/>
-        Wenn du per E-Mail Kontakt aufnimmst, werden deine Angaben (z. B. E-Mail-Adresse und Inhalt der Nachricht) ausschließlich zur Bearbeitung der Anfrage verarbeitet. Eine Weitergabe an Dritte erfolgt nicht ohne deine Einwilligung, sofern keine gesetzliche Verpflichtung besteht.<br/><br/>
-        <strong>5. Deine Rechte</strong><br/>
-        Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung deiner personenbezogenen Daten sowie ein Recht auf Datenübertragbarkeit. Zudem besteht ein Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde.
-      </div>
-    </details>
-
-    <details class="acc" id="acc-risiko">
-      <summary><span>Risikohinweis & Haftungsausschluss</span><span class="chev">▾</span></summary>
-      <div class="body">
-        Die auf dieser Website bereitgestellten Inhalte dienen ausschließlich Informations- und Bildungszwecken. Sie stellen keine Anlageberatung, keine Finanzanalyse und keine Empfehlung zum Kauf oder Verkauf von Finanzinstrumenten dar.<br/><br/>
-        Trading mit Aktien, Derivaten und Optionen ist mit erheblichen Risiken verbunden und kann zum vollständigen Verlust des eingesetzten Kapitals führen. Entscheidungen, die auf Basis der dargestellten Informationen getroffen werden, erfolgen ausschließlich auf eigenes Risiko.<br/><br/>
-        Market Vision Pro übernimmt keine Haftung für finanzielle Verluste, entgangene Gewinne oder sonstige Schäden, die direkt oder indirekt aus der Nutzung der bereitgestellten Inhalte entstehen.
-      </div>
-    </details>
-
-    <div class="body" style="margin-top:10px">
-      <strong>Kein Financial Advice:</strong> Inhalte dienen ausschließlich Informationszwecken und stellen keine Anlageberatung, Empfehlung oder Aufforderung zum Kauf/Verkauf dar. Trading ist risikobehaftet.
-    </div>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  const pricing = {
-    trial: {base: 20, fundamentalIncluded: true, add: 0, label: "Probe-Abo, 1 Woche (1 Aktie)"},
-    mvp10: {base: 100, fundamentalIncluded: false, add: 15, label: "MVP 10 (bis 10 Aktien / Monat)"},
-    mvp25: {base: 250, fundamentalIncluded: false, add: 30, label: "MVP 25 (bis 25 Aktien / Monat)"},
-    mvp100:{base: 350, fundamentalIncluded: false, add: 50, label: "MVP 100 (bis 100 Aktien / Monat)"}
-  };
-
-  function pick(id){
-    const el = document.getElementById(id);
-    if(el) el.checked = true;
-    recalc();
-  }
-
-  function selectedPlan(){
-    const r = document.querySelector('input[name="plan"]:checked');
-    return r ? r.value : 'trial';
-  }
-
-  function recalc(){
-    const plan = selectedPlan();
-    const fund = document.getElementById('fundamental');
-    const addonBox = document.getElementById('addonBox');
-    const fundPriceText = document.getElementById('fundPriceText');
-    const fundPill = document.getElementById('fundPill');
-
-    const cfg = pricing[plan];
-
-    if(cfg.fundamentalIncluded){
-      fund.checked = true;
-      fund.disabled = true;
-      addonBox.style.opacity = "0.65";
-      fundPriceText.textContent = "Fundamentalanalyse: inklusive";
-      fundPill.textContent = "+0€";
-    } else {
-      fund.disabled = false;
-      addonBox.style.opacity = "1";
-      fundPriceText.textContent = "Add-on: +" + cfg.add + "€ / Monat";
-      fundPill.textContent = "+" + (fund.checked ? cfg.add : 0) + "€";
-    }
-
-    const total = cfg.base + ((cfg.fundamentalIncluded || !fund.checked) ? 0 : cfg.add);
-    const suffix = cfg.label.includes("Probe") ? "einmalig" : "pro Monat";
-    document.getElementById('sumLine').textContent = "Gesamt: " + total + "€ (" + suffix + ") · " + cfg.label;
-    document.getElementById('sumDesc').textContent = "Weiter führt dich zur Freischaltung / zum nächsten Schritt.";
-    const pillMap = {
-      mvp10: "pill-p1",
-      mvp25: "pill-p2",
-      mvp100:"pill-p3"
-    };
-    for(const k of Object.values(pillMap)){
-      const el = document.getElementById(k);
-      if(el) el.textContent = "Basis: " + (k==="pill-p1"?100:k==="pill-p2"?250:350) + "€";
-    }
-    if(plan==="trial"){
-      document.getElementById('fundPill').textContent = "+0€";
-    }
-  }
-
-  function goNext(){
-    const plan = selectedPlan();
-    const cfg = pricing[plan];
-    const fund = document.getElementById('fundamental');
-    const wantFund = cfg.fundamentalIncluded ? TrueFalse(true) : TrueFalse(fund.checked);
-    const addon = (cfg.fundamentalIncluded || !fund.checked) ? 0 : cfg.add;
-    const total = cfg.base + addon;
-
-    const subject = encodeURIComponent("MVP Abo wählen: " + plan + (wantFund ? " + Fundamentals" : ""));
-    const body = encodeURIComponent(
-      "Hi,\n\nich möchte folgendes Abo wählen:\n" +
-      "- Modell: " + cfg.label + "\n" +
-      "- Preis: " + cfg.base + "€" + (cfg.label.includes("Probe") ? " einmalig" : " / Monat") + "\n" +
-      "- Fundamentals: " + (cfg.fundamentalIncluded ? "inklusive" : (fund.checked ? "ja (+" + cfg.add + "€ / Monat)" : "nein")) + "\n" +
-      "- Gesamt: " + total + "€" + (cfg.label.includes("Probe") ? " einmalig" : " / Monat") + "\n\n" +
-      "Bitte sendet mir den nächsten Schritt (Zugang/Onboarding).\n\nEmail: "
-    );
-    window.location.href = "mailto:support@market-vision-pro.com?subject=" + subject + "&body=" + body;
-    return false;
-  }
-
-  function TrueFalse(v){ return v ? true : false; }
-
-  function openAcc(id){
-    const all = ['acc-impressum','acc-datenschutz','acc-risiko'];
-    for(const x of all){
-      const el = document.getElementById(x);
-      if(el && x !== id) el.open = false;
-    }
-    const el = document.getElementById(id);
-    if(!el) return;
-    el.open = true;
-    el.scrollIntoView({behavior:'smooth', block:'start'});
-  }
-
-  recalc();
-</script>
 </body>
 </html>
